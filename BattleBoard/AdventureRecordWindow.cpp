@@ -1,12 +1,11 @@
 //=============================================================================
-//D The apps main window
-//
-// Contains a tab list of the windows where things actually happen
+//D The window that tracks the record of where points came from
 //
 //-----------------------------------------------------------------------------
 
 // Class header include
 #include "AdventureRecordWindow.h"
+
 // includes from project
 #include "AdventureRecordWidget.h"
 
@@ -21,16 +20,9 @@ AdventureRecordWindow::AdventureRecordWindow(QWidget *parent)
 //-----------------------------------------------------------------------------
   : QDialog(parent)
 {
-  QVBoxLayout* verticalLayout = new QVBoxLayout;
-  QPushButton* PushButton = new QPushButton(this);
-  PushButton->setObjectName(QStringLiteral("PushButton"));
-  PushButton->setText("Add New Record");
-  QObject::connect(PushButton, SIGNAL(clicked()), this, SLOT(actionNewRecordButton()));
-  verticalLayout->addWidget(PushButton);
-  verticalLayout->addWidget(create_new_record());
-  setLayout(verticalLayout);
-  m_vert_layout = verticalLayout;
-  setWindowTitle(tr("Adventure Record"));
+
+  m_ui.setupUi(this);
+
 }
 
 //=============================================================================
@@ -42,16 +34,6 @@ AdventureRecordWindow::~AdventureRecordWindow()
 {
 
 }
-//=============================================================================
-QGroupBox* AdventureRecordWindow::create_new_record()
-//
-//D
-//
-//-----------------------------------------------------------------------------
-{
-  m_adventures.push_back(std::make_unique<AdventureRecordWidget>());
-  return m_adventures[m_adventures.size() - 1].get();
-}
 
 //=============================================================================
 void AdventureRecordWindow::actionNewRecordButton()
@@ -60,5 +42,7 @@ void AdventureRecordWindow::actionNewRecordButton()
 //
 //-----------------------------------------------------------------------------
 {
-  m_vert_layout->addWidget(create_new_record());
+  auto new_adventure = std::make_unique<AdventureRecordWidget>();
+  m_adventures.push_back(std::move(new_adventure));
+  m_ui.verticalLayout_2->addWidget(new_adventure.get());
 }

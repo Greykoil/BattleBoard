@@ -6,7 +6,7 @@
 //-----------------------------------------------------------------------------
 #pragma once
 // includes from project
-
+#include "SkillPageVMManager.h"
 // QT ui include
 #include "ui_MainWindow.h"
 
@@ -54,6 +54,11 @@ private slots:
   void actionSave();
 
 private:
+
+  //  ais::debug::<nnnn>
+  // This should be moved int a more appropriate owning class
+  // ais::end::debug::<nnnn>
+  SkillPageVMManager m_manager;
 
   std::vector<std::unique_ptr<QDialog>> m_tab_list;
   // The vector of tabs that this window is going to show

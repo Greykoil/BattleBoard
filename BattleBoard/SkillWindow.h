@@ -6,7 +6,7 @@
 //-----------------------------------------------------------------------------
 #pragma once
 // includes from project
-
+#include "SkillVMManager.h"
 // QT ui include
 #include "ui_SkillWindow.h"
 
@@ -14,10 +14,13 @@
 #include <QDialog>
 
 // system includes
+#include <memory>
+#include <vector>
 
 // class predeclarations to avoid header file inclusion
 
 // types: classes, enums, typedefs
+class SkillPageVMManager;
 
 //=============================================================================
 class SkillWindow : public QDialog
@@ -26,7 +29,10 @@ class SkillWindow : public QDialog
 
 public:
   
-  SkillWindow(QWidget *parent = Q_NULLPTR);
+  SkillWindow(
+    SkillPageVMManager* manager,
+    QWidget *parent = Q_NULLPTR
+  );
   // Constructor
 
   SkillWindow(const SkillWindow&) = delete;
@@ -40,6 +46,11 @@ public:
 
 
 private:
+
+  SkillPageVMManager* m_vm_manager;
+  // The view model for the skill window
+
+  std::vector<std::unique_ptr<SkillWidget>> m_visable_skills;
 
   Ui::SkillWindow m_ui;
   // The ui helper class provided by the QT framework

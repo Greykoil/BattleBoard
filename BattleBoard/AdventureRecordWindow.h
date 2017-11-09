@@ -12,6 +12,7 @@
 
 //includes from QT
 #include <QDialog>
+#include <QtWidgets>
 
 // system includes
 #include <vector>
@@ -46,15 +47,10 @@ private slots:
   void actionNewRecordButton();
   // The button has been pressed to add a new record to the end of the list
 
-  QGroupBox* create_new_record();
-  // Create a new record
-
 private:
 
   std::vector<std::unique_ptr<AdventureRecordWidget>> m_adventures;
-
-
-  QVBoxLayout* m_vert_layout;
+  // The list of visable adventures
 
   Ui::AdventureRecordWindow m_ui;
   // The ui helper class provided by the QT framework

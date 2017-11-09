@@ -48,7 +48,8 @@ void MainWindow::add_tabs()
 //-----------------------------------------------------------------------------
 {
   // Add the tabs to storeage
-  m_tab_list.push_back(std::make_unique<SkillWindow>());
+
+  m_tab_list.push_back(std::make_unique<SkillWindow>(&m_manager));
   m_tab_list.push_back(std::make_unique<ArmourWindow>());
   m_tab_list.push_back(std::make_unique<AdventureRecordWindow>());
 
