@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AdvenureRecordWindow</class>
- <widget class="QDialog" name="AdvenureRecordWindow">
+ <class>AdventureRecordWindow</class>
+ <widget class="QDialog" name="AdventureRecordWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Advenure Record</string>
+   <string>Adventure Record</string>
   </property>
   <widget class="QPushButton" name="PushButton">
    <property name="geometry">
@@ -79,6 +79,17 @@
     <string>GroupBox</string>
    </property>
   </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>230</y>
+     <width>160</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout"/>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
@@ -86,21 +97,22 @@
   <connection>
    <sender>PushButton</sender>
    <signal>clicked()</signal>
-   <receiver>AdvenureRecordWindow</receiver>
-   <slot>newAdventureRecord()</slot>
+   <receiver>AdventureRecordWindow</receiver>
+   <slot>actionNewRecordButton()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>59</x>
-     <y>24</y>
+     <x>91</x>
+     <y>25</y>
     </hint>
     <hint type="destinationlabel">
-     <x>68</x>
-     <y>176</y>
+     <x>129</x>
+     <y>149</y>
     </hint>
    </hints>
   </connection>
  </connections>
  <slots>
   <slot>newAdventureRecord()</slot>
+  <slot>actionNewRecordButton()</slot>
  </slots>
 </ui>
