@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1160</x>
+      <y>120</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Model</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>660</x>
+      <y>110</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>ViewModel</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>240</x>
+      <y>110</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>View</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1030</x>
+      <y>220</y>
+      <w>370</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>modCharacter
+--
+
+--
+enum race m_race
+enum class m_class
+vwmCharacter* m_view_model_character
+modSkillManager m_skill_manager
+modAdventureManager m_adventure_record_manager</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1400</x>
+      <y>530</y>
+      <w>330</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>modSkill
+--
+--
+string m_name
+int m_cost
+int m_num_ranks
+int m_max_picks
+bool status_skill
+vwmSkill* m_view_model_skill</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1020</x>
+      <y>530</y>
+      <w>360</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>modAdventureRecord
+--
+
+--
+date - adventure date
+String m_adventure_title
+enum m_length
+enum m_prm
+int m_points
+int m_deaths
+vwmAdventureRecord* m_viewmodel_adventure_record
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>290</y>
+      <w>280</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>vwmCharacter
+--
+
+--
+modCharacter* m_model_character
+viwCharacter* m_view_character</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>720</y>
+      <w>250</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>vwmSkill
+--
+
+--
+modSkill* m_model_skill
+viw* m_view_skill</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>540</y>
+      <w>340</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>vwmAdventureRecord
+--
+
+--
+modAdventureRecord* m_model_adventure_record
+viwAdventureRecord* m_view_adventure_record
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>130</x>
+      <y>290</y>
+      <w>280</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>vieCharacter
+--
+
+--
+vwmCharacter* m_view_model_character
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>130</x>
+      <y>530</y>
+      <w>370</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>vieAdventureRecord
+--
+
+--
+vwmAdventureRecord* m_viewmodel_adventure_record
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>130</x>
+      <y>710</y>
+      <w>250</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>vieSkill
+--
+
+--
+vwmSkill* m_view_model_skill</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>440</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>vwmSkillPage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>480</y>
+      <w>240</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>vwmAdventureRecordPage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>130</x>
+      <y>430</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>vieSkillPage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>130</x>
+      <y>470</y>
+      <w>240</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>vieAdventureRecordPage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1400</x>
+      <y>440</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>modSkillManager
+--
+
+--
+vector&lt;modSkill&gt; m_skill_list
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1010</x>
+      <y>430</y>
+      <w>370</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>modAdventureRecordManager
+--
+
+--
+vector&lt;modAdventureRecord&gt; m_adventure_record_list
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
