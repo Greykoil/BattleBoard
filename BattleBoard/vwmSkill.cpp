@@ -38,6 +38,16 @@ void vwmSkill::set_view_skill(vieSkillWidget* skill)
 }
 
 //=============================================================================
+bool vwmSkill::is_visable()
+//
+//D Is the skill pickable
+//
+//-----------------------------------------------------------------------------
+{
+  return m_skill_model->is_pickable();
+}
+
+//=============================================================================
 std::unique_ptr<vieSkillWidget> vwmSkill::make_widget()
 //
 //D Make the widget for the corresponding skill
@@ -54,20 +64,34 @@ std::unique_ptr<vieSkillWidget> vwmSkill::make_widget()
 }
 
 //=============================================================================
-void vwmSkill::change_num_picks(int num_picks)
+bool vwmSkill::change_num_picks(int num_picks)
 //
 //D Change the number of picks of the skill and update the gui with the 
-//  new cost for those picks
+//  new cost for those picks. Caps picks at max picks the skill allows and 
+//  return false if the skill does not change
 //
 //-----------------------------------------------------------------------------
 {
   assert(num_picks >= 0);
   assert(m_skill_view != nullptr);
-  m_skill_model->set_picks(num_picks);
+  
+  // Check if too many ranks were picked
+  if (num_picks > m_skill_model->max_picks()) {
+    num_picks = m_skill_model->max_picks();
+  }
+  
+  bool changed = m_skill_model->set_picks(num_picks);
+  if (!changed) {
+    return false;
+  }
+  
   int cost = m_skill_model->total_cost();
 
   m_skill_view->set_total_cost(cost);
 
+  // We might need to update the available skills
+  m_parent->update_displayed_skills();
+  return true;
 }
 
 int vwmSkill::num_picks()

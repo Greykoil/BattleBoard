@@ -27,6 +27,9 @@ public:
   );
   // Constructor
 
+  void set_view(vieSkillWindow* view) { m_view = view; }
+
+
   void full_skill_list(std::vector<std::unique_ptr<vieSkillWidget>>& vector);
   // Construct the initial list of visable skill widgets
 
@@ -36,13 +39,16 @@ public:
   vwmSkill* skill(int n);
   // Get the n'th skill
 
+  void update_displayed_skills();
+  // Update the displayed skill list
+
   vwmSkillPage(const vwmSkillPage&) = delete;
   // Deleted copy constructor.
 
   vwmSkillPage& operator=(const vwmSkillPage&) = delete;
   // Deleted assignment operator.
 
-  ~vwmSkillPage();
+  ~vwmSkillPage() = default;
   // Destructor
 
 protected:

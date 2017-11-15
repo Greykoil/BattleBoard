@@ -60,7 +60,7 @@ bool modSkillManager::create_skill_tree()
 //=============================================================================
 int modSkillManager::num_skills() const
 //
-//D
+//D Get the number of available skills
 //
 //-----------------------------------------------------------------------------
 {
@@ -68,23 +68,13 @@ int modSkillManager::num_skills() const
 }
 
 //=============================================================================
-modSkill * modSkillManager::skill(int num)
+modSkill* modSkillManager::skill(int num)
 //
-//D
+//D Get the n'th skill
 //
 //-----------------------------------------------------------------------------
 {
   return m_skill_tree[num].get();
-}
-
-//=============================================================================
-modSkillManager::~modSkillManager()
-//
-// Default destructor
-//
-//-----------------------------------------------------------------------------
-{
-
 }
 
 //=============================================================================
@@ -101,10 +91,25 @@ bool modSkillManager::skill_from_xml(tinyxml2::XMLElement* node)
   int max_picks;
   out = node->QueryIntAttribute("MaxPicks", &max_picks);
   XMLCheckResult(out);
-  bool is_status = false;
-  auto skill = std::make_unique<modSkill>(name, cost, max_picks, is_status);
 
-  m_skill_tree.push_back(std::move(skill));
+  std::vector<modSkill*> pre_reqs;
+
+
+  XMLElement* skill = node->FirstChildElement("Prerequisite");
+  while (skill != nullptr) {
+    std::string name = skill->GetText();
+    for (auto& current : m_skill_tree) {
+      if (current->name() == name) {
+        pre_reqs.push_back(current.get());
+      }
+    }
+    skill = skill->NextSiblingElement("Prerequisite");
+  }
+
+
+  bool is_status = false;
+
+  m_skill_tree.push_back(std::make_unique<modSkill>(name, cost, max_picks, is_status, pre_reqs));
   return true;
 }
 

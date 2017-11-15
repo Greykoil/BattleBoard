@@ -40,13 +40,16 @@ public:
   void set_total_cost(int total_cost);
   // Set the displayed total cost text
 
+  bool is_visable();
+  // Is the skill visable as a pickable skill 
+
   vieSkillWidget(const vieSkillWidget&) = delete;
   // Deleted copy constructor.
 
   vieSkillWidget& operator=(const vieSkillWidget&) = delete;
   // Deleted assignment operator.
 
-  virtual ~vieSkillWidget();
+  virtual ~vieSkillWidget() = default;
   // Destructor
 
 private slots:

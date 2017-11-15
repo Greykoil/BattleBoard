@@ -44,7 +44,7 @@ public:
   vieSkillWindow& operator=(const vieSkillWindow&) = delete;
   // Deleted assignment operator.
 
-  virtual ~vieSkillWindow();
+  virtual ~vieSkillWindow() = default;
   // Destructor
 
 
@@ -54,9 +54,11 @@ private:
   // The view model for the skill window
 
   std::vector<std::unique_ptr<vieSkillWidget>> m_full_skill_list;
-
-  std::vector<vieSkillWidget*> m_visable_skills;
+  // All the available skills
 
   Ui::SkillWindow m_ui;
   // The ui helper class provided by the QT framework
+
+  std::vector<std::pair<vieSkillWidget*, QListWidgetItem*>> m_all_skills;
+  // All the skills with their containing place in the list
 };

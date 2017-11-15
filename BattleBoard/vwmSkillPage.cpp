@@ -70,12 +70,12 @@ vwmSkill* vwmSkillPage::skill(int n)
 }
 
 //=============================================================================
-vwmSkillPage::~vwmSkillPage()
+void vwmSkillPage::update_displayed_skills()
 //
-// Default destructor
+//D
 //
 //-----------------------------------------------------------------------------
 {
-
+  m_view->redraw();
 }
 

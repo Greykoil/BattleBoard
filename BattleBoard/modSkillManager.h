@@ -37,7 +37,7 @@ public:
   modSkillManager& operator=(const modSkillManager&) = delete;
   // Deleted assignment operator.
 
-  ~modSkillManager();
+  ~modSkillManager() = default;
   // Destructor
 
 protected:

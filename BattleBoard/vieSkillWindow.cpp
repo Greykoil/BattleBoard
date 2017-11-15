@@ -10,6 +10,8 @@
 #include "vieSkillWidget.h"
 //includes from QT
 
+#include <assert.h>
+
 //=============================================================================
 vieSkillWindow::vieSkillWindow(
   vwmSkillPage* manager,
@@ -22,19 +24,28 @@ vieSkillWindow::vieSkillWindow(
   : QDialog(parent),
     m_vm_manager(manager)
 {
+  manager->set_view(this);
   m_ui.setupUi(this);
 
   // Get a list of the visable skills
   m_vm_manager->full_skill_list(m_full_skill_list);
   
-  
   // Here is a list of skills to display
   for (auto& skill : m_full_skill_list) {
     QListWidgetItem* item = new QListWidgetItem();
     item->setSizeHint(skill.get()->sizeHint());
+    auto pair = std::make_pair(skill.get(), item);
+    m_all_skills.push_back(pair);
+
     m_ui.listWidget->addItem(item);
     m_ui.listWidget->setItemWidget(item, skill.get());
+    if (!skill->is_visable()) {
+      item->setHidden(true);
+    }
   }
+
+  redraw();
+
 }
 
 //=============================================================================
@@ -42,34 +53,11 @@ void vieSkillWindow::redraw()
 //
 //D Triggered when the list of visable skills has changed
 //  
-//  There should be a way of updating the list rather than 
-//  redrawing everything
+//  Hide the skills that are not pickable and reveal the skills that are
+// 
 //-----------------------------------------------------------------------------
 {
-  // Clear the current visable and reload
-
-  // We want to clear out any widgets that are not visable and add any that are
-  for (auto skill : m_visable_skills) {
-    m_ui.verticalLayout_2->removeWidget(skill);
+  for (auto widget : m_all_skills) {
+    widget.second->setHidden(!(widget.first->is_visable()));
   }
-
-  m_visable_skills.clear();
-  // Here is a list of skills to display
-  //for (auto& skill : m_full_skill_list) {
-  //  if (skill->is_visable()) {
-  //    m_visable_skills.push_back(skill.get());
-  //    m_ui.verticalLayout_2->addWidget(skill.get());
-  //    m_ui.verticalLayout_2->addWidget(skill.get());
-  //  }
-  //}
-}
-
-//=============================================================================
-vieSkillWindow::~vieSkillWindow()
-//
-//D Default Destructor
-//
-//-----------------------------------------------------------------------------
-{
-
 }

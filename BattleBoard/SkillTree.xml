@@ -9,5 +9,9 @@
   <Skill Name="Mnemonic Master" Cost="500" MaxPicks="1">
     <Prerequisite>Mnemonic</Prerequisite>
   </Skill>
+  <Skill Name="Mnemoic Enhanced Master" Cost="1000" MaxPicks="1">
+    <Prerequisite>Mnemonic Master</Prerequisite>
+    <Prerequisite>Meditate</Prerequisite>
+  </Skill>
   <Skill Name="Something New" Cost="9890" MaxPicks="7"/>
 </Root>

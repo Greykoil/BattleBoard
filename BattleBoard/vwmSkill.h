@@ -24,13 +24,17 @@ public:
   );
   // Constructor
 
+
   void set_view_skill(vieSkillWidget* skill);
   // Set m_view_skill
+
+  bool is_visable();
+  // Return true if the skill can be chosen by the user
 
   std::unique_ptr<vieSkillWidget> make_widget();
   // Make the widget for the corresponding skill
 
-  void change_num_picks(int num_picks);
+  bool change_num_picks(int num_picks);
   // The user has changed the number of picks of an available skill
   // Update everthing that needs it
 

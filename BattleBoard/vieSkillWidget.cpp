@@ -9,6 +9,7 @@
 #include "vwmSkill.h"
 
 //includes from QT
+#include <qmessagebox.h>
 
 //System includes
 #include <assert.h>
@@ -60,13 +61,21 @@ void vieSkillWidget::actionNumberPicksBoxChanged(QString new_text)
   // don't want. 
   num_picks = std::max(0, num_picks);
 
-  m_view_model->change_num_picks(num_picks);
+  bool changed = m_view_model->change_num_picks(num_picks);
+
+  if (!changed) {
+    QMessageBox box;
+    box.setText("Removing breaks dependency");
+    box.exec();
+  }
+
+  m_ui.numberBoughtEdit->setText(QString::number(m_view_model->num_picks()));
 }
 
 //=============================================================================
 void vieSkillWidget::set_total_cost(int total_cost)
 //
-//D
+//D Set the total cost for the number of ranks of the skill
 //
 //-----------------------------------------------------------------------------
 {
@@ -74,11 +83,12 @@ void vieSkillWidget::set_total_cost(int total_cost)
 }
 
 //=============================================================================
-vieSkillWidget::~vieSkillWidget()
+bool vieSkillWidget::is_visable()
 //
-//D Default destructor
+//D Should the skill be displayed as a pickable skill
 //
 //-----------------------------------------------------------------------------
 {
-
+  return m_view_model->is_visable();
 }
+
