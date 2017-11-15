@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AdventureRecordWidget</class>
+ <widget class="QGroupBox" name="AdventureRecordWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>719</width>
+    <height>388</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>AdventureRecordWidget</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_2">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QDateEdit" name="dateEdit"/>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="nameEdit"/>
+     </item>
+     <item>
+      <widget class="QComboBox" name="lengthBox">
+       <item>
+        <property name="text">
+         <string>Other</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Adventure Weekend</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Special</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Heroquest</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="typeBox">
+       <item>
+        <property name="text">
+         <string>Other</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Played</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Monstered</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Reffed</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="pointsBox"/>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="deathsBox"/>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>dateEdit</sender>
+   <signal>dateChanged(QDate)</signal>
+   <receiver>AdventureRecordWidget</receiver>
+   <slot>actionDateBoxChanged(QDate)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>56</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>62</x>
+     <y>265</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>nameEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>AdventureRecordWidget</receiver>
+   <slot>actionTitleBoxChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>142</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>168</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lengthBox</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>AdventureRecordWidget</receiver>
+   <slot>actionLengthBoxChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>312</x>
+     <y>164</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>336</x>
+     <y>100</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>typeBox</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>AdventureRecordWidget</receiver>
+   <slot>actionTypeBoxChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>391</x>
+     <y>163</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>434</x>
+     <y>240</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pointsBox</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>AdventureRecordWidget</receiver>
+   <slot>actionPointsBoxChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>539</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>556</x>
+     <y>97</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>deathsBox</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>AdventureRecordWidget</receiver>
+   <slot>actionDeathsBoxChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>671</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>674</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>actionTitleBoxChanged(QString)</slot>
+  <slot>actionDateBoxChanged(QDate)</slot>
+  <slot>actionLengthBoxChanged(QString)</slot>
+  <slot>actionTypeBoxChanged(QString)</slot>
+  <slot>actionPointsBoxChanged(QString)</slot>
+  <slot>actionDeathsBoxChanged(QString)</slot>
+ </slots>
+</ui>

@@ -1,0 +1,17 @@
+﻿<Root>
+  <!-- This is an xml file that lists all of the skills that a player can purchase, 
+  their costs and other information that they need-->
+  <Skill Name="Life" Cost="3" MaxPicks="150"/>
+  <Skill Name="Mana" Cost="1" MaxPicks="500"/>
+  <Skill Name="Power" Cost="4" MaxPicks="200"/>
+  <Skill Name="Mnemonic" Cost="50" MaxPicks="1"/>
+  <Skill Name="Meditate" Cost="100" MaxPicks="1"/>
+  <Skill Name="Mnemonic Master" Cost="500" MaxPicks="1">
+    <Prerequisite>Mnemonic</Prerequisite>
+  </Skill>
+  <Skill Name="Mnemoic Enhanced Master" Cost="1000" MaxPicks="1">
+    <Prerequisite>Mnemonic Master</Prerequisite>
+    <Prerequisite>Meditate</Prerequisite>
+  </Skill>
+  <Skill Name="Something New" Cost="9890" MaxPicks="7"/>
+</Root>
