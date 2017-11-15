@@ -17,6 +17,7 @@
 
 // class predeclarations to avoid header file inclusion
 // types: classes, enums, typedefs
+class vwmSkill;
 
 //=============================================================================
 class vieSkillWidget : public QWidget
@@ -26,6 +27,7 @@ class vieSkillWidget : public QWidget
 public:
 
   vieSkillWidget(
+    vwmSkill* view_model,
     QString name,
     int cost_per_rank,
     int max_picks,
@@ -34,6 +36,9 @@ public:
     QWidget *parent = Q_NULLPTR
   );
   // Constructor
+
+  void set_total_cost(int total_cost);
+  // Set the displayed total cost text
 
   vieSkillWidget(const vieSkillWidget&) = delete;
   // Deleted copy constructor.
@@ -53,6 +58,6 @@ private:
   
   Ui::SkillWidget m_ui;
 
-  int m_cost_per_rank;
+  vwmSkill* m_view_model;
 
 };

@@ -21,6 +21,7 @@
 // class predeclarations to avoid header file inclusion
 // types: classes, enums, typedefs
 class vieAdventureRecordWidget;
+class vwmAdventureRecordManager;
 
 //=============================================================================
 class vieAdventureRecordWindow : public QDialog
@@ -29,7 +30,10 @@ class vieAdventureRecordWindow : public QDialog
 
 public:
 
-  vieAdventureRecordWindow(QWidget *parent = Q_NULLPTR);
+  vieAdventureRecordWindow(
+    vwmAdventureRecordManager* view_model,
+    QWidget *parent = Q_NULLPTR
+  );
   // Constructor
 
   vieAdventureRecordWindow(const vieAdventureRecordWindow&) = delete;
@@ -48,6 +52,8 @@ private slots:
   // The button has been pressed to add a new record to the end of the list
 
 private:
+
+  vwmAdventureRecordManager* m_view_model;
 
   std::vector<std::unique_ptr<vieAdventureRecordWidget>> m_adventures;
   // The list of visable adventures

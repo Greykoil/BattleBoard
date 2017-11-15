@@ -12,17 +12,29 @@
 // class predeclarations to avoid header file inclusion
 class vwmSkill;
 class vieSkillWidget;
+class modSkillManager;
+class vwmCharacter;
+class vieSkillWindow;
 // types: classes, enums, typedefs
 
 //=============================================================================
 class vwmSkillPage {
 public:
 
-  vwmSkillPage();
+  vwmSkillPage(
+    modSkillManager* model_skill_page,
+    vwmCharacter* parent
+  );
   // Constructor
 
-  void initial_skill_list(std::vector<std::unique_ptr<vieSkillWidget>>& vector);
+  void full_skill_list(std::vector<std::unique_ptr<vieSkillWidget>>& vector);
   // Construct the initial list of visable skill widgets
+
+  int num_skills();
+  // The number of skills
+
+  vwmSkill* skill(int n);
+  // Get the n'th skill
 
   vwmSkillPage(const vwmSkillPage&) = delete;
   // Deleted copy constructor.
@@ -44,13 +56,12 @@ private:
   // functions
   // variables
   
-  //  ais::debug::<nnnn>
-  // Move this to somewhere more sensible
-  // ais::end::debug::<nnnn>
-  modSkillManager m_creator;
-  // The class resposible for reading the full skill list
+  modSkillManager* m_model_skill_page;
 
+  vieSkillWindow* m_view;
 
   std::vector<std::unique_ptr<vwmSkill>> m_skills;
   // The list of individual View model managers for each skill
+
+  vwmCharacter* m_parent;
 };

@@ -100,15 +100,6 @@
     <ClCompile Include="vieAdventureRecordWindow.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_vieArmourWindow.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_vieArmourWindow.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="vieArmourWindow.cpp">
-      <Filter>Source Files\View</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_vieSkillWidget.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
@@ -136,6 +127,33 @@
     <ClCompile Include="vieMainWindow.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
+    <ClCompile Include="modAdventureRecord.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="modAdventureRecordManager.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="modCharacter.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="vwmCharacter.cpp">
+      <Filter>Source Files\ViewModel</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vieCharacterWindow.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vieCharacterWindow.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="vieCharacterWindow.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="vwmAdventureRecord.cpp">
+      <Filter>Source Files\ViewModel</Filter>
+    </ClCompile>
+    <ClCompile Include="vwmAdventureRecordManager.cpp">
+      <Filter>Source Files\ViewModel</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="MainWindow.qrc">
@@ -150,16 +168,10 @@
     <CustomBuild Include="vieAdventureRecordWindow.h">
       <Filter>Header Files\View</Filter>
     </CustomBuild>
-    <CustomBuild Include="vieArmourWindow.h">
-      <Filter>Header Files\View</Filter>
-    </CustomBuild>
     <CustomBuild Include="vieMainWindow.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="vieAdventureRecordWindow.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="vieArmourWindow.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="vieSkillWidget.ui">
@@ -175,6 +187,12 @@
       <Filter>Header Files\View</Filter>
     </CustomBuild>
     <CustomBuild Include="vieSkillWindow.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieCharacterWindow.h">
+      <Filter>Header Files\View</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieCharacterWindow.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
   </ItemGroup>
@@ -197,20 +215,38 @@
     <ClInclude Include="GeneratedFiles\ui_vieAdventureRecordWidget.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_vieAdventureRecordWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_vieArmourWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_vieMainWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_vieSkillWidget.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_vieSkillWindow.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="modAdventureRecord.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="modAdventureRecordManager.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="modCharacter.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="vwmCharacter.h">
+      <Filter>Header Files\ViewModel</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieAdventureRecordWindow.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieMainWindow.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieSkillWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieCharacterWindow.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vwmAdventureRecord.h">
+      <Filter>Header Files\ViewModel</Filter>
+    </ClInclude>
+    <ClInclude Include="vwmAdventureRecordManager.h">
+      <Filter>Header Files\ViewModel</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

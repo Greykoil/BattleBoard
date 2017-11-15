@@ -35,6 +35,9 @@ public:
   );
   // Constructor
 
+  void redraw();
+  // Redraw the list of available skills
+
   vieSkillWindow(const vieSkillWindow&) = delete;
   // Deleted copy constructor.
 
@@ -50,7 +53,9 @@ private:
   vwmSkillPage* m_vm_manager;
   // The view model for the skill window
 
-  std::vector<std::unique_ptr<vieSkillWidget>> m_visable_skills;
+  std::vector<std::unique_ptr<vieSkillWidget>> m_full_skill_list;
+
+  std::vector<vieSkillWidget*> m_visable_skills;
 
   Ui::SkillWindow m_ui;
   // The ui helper class provided by the QT framework

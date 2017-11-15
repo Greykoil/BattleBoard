@@ -12,7 +12,7 @@
 
 // class predeclarations to avoid header file inclusion
 class modSkill;
-
+class vwmSkillPage;
 // types: classes, enums, typedefs
 
 //=============================================================================
@@ -26,10 +26,10 @@ public:
   // Create the skill tree 
 
   int num_skills() const;
-  // the number of created skill
+  // Return the number of total skills
 
   modSkill* skill(int num);
-  // Return the nth skill
+  // return the n'th skill
 
   modSkillManager(const modSkillManager&) = delete;
   // Deleted copy constructor.
@@ -44,6 +44,7 @@ protected:
 
   // functions
   bool skill_from_xml(tinyxml2::XMLElement* node);
+
   // variables
 
 private:
@@ -52,5 +53,7 @@ private:
   // functions
   // variables
   std::vector<std::unique_ptr<modSkill>> m_skill_tree;
+
+  vwmSkillPage* m_view_model;
 
 };

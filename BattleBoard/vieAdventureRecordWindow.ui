@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>844</width>
-    <height>466</height>
+    <width>869</width>
+    <height>476</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,36 +15,14 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QScrollArea" name="scrollArea">
-     <property name="widgetResizable">
-      <bool>true</bool>
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>Add New Record</string>
      </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>824</width>
-        <height>446</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QPushButton" name="PushButton">
-         <property name="maximumSize">
-          <size>
-           <width>150</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Add New Record</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
     </widget>
+   </item>
+   <item>
+    <widget class="QListWidget" name="listWidget"/>
    </item>
   </layout>
  </widget>
@@ -52,18 +30,18 @@
  <resources/>
  <connections>
   <connection>
-   <sender>PushButton</sender>
+   <sender>pushButton</sender>
    <signal>clicked()</signal>
    <receiver>AdventureRecordWindow</receiver>
    <slot>actionNewRecordButton()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>91</x>
-     <y>25</y>
+     <x>140</x>
+     <y>29</y>
     </hint>
     <hint type="destinationlabel">
-     <x>129</x>
-     <y>149</y>
+     <x>144</x>
+     <y>-16</y>
     </hint>
    </hints>
   </connection>

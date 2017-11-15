@@ -6,7 +6,7 @@
 //-----------------------------------------------------------------------------
 // includes from our libraries
 #include "modSkill.h"
-
+#include "modSkillManager.h"
 // system includes
 
 //=============================================================================
@@ -23,19 +23,20 @@ modSkill::modSkill(
   : m_name(a_name),
     m_cost(a_cost),
     m_max_picks(a_max_picks),
-    m_status(a_status)
+    m_status(a_status),
+    m_num_picks(0)
 {
 
 }
 
 //=============================================================================
-void modSkill::add_prerequeset(std::string name)
+int modSkill::num_picks() const
 //
-//D Add a prerequired skill to the list of existing prerequisites
+//D The ranks of the skill the character has
 //
 //-----------------------------------------------------------------------------
 {
-  m_prerequisits.push_back(name);
+  return m_num_picks;
 }
 
 //=============================================================================
@@ -79,12 +80,21 @@ bool modSkill::is_status() const
 }
 
 //=============================================================================
-modSkill::~modSkill()
+void modSkill::set_picks(int num_picks)
 //
-//D Default Destructor
+//D Set the number of picks of the skill
 //
 //-----------------------------------------------------------------------------
 {
-
+  m_num_picks = num_picks;
 }
 
+//=============================================================================
+int modSkill::total_cost() const
+//
+//D Return the total cost for the number of picks of this skill
+//
+//-----------------------------------------------------------------------------
+{
+  return m_num_picks * m_cost;
+}

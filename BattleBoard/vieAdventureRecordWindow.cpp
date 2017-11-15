@@ -13,16 +13,18 @@
 #include <QTWidgets>
 
 //=============================================================================
-vieAdventureRecordWindow::vieAdventureRecordWindow(QWidget *parent)
+vieAdventureRecordWindow::vieAdventureRecordWindow(
+  vwmAdventureRecordManager* view_model, 
+  QWidget *parent
+)
 //
 //D Default constructor
 //
 //-----------------------------------------------------------------------------
-  : QDialog(parent)
+  : QDialog(parent),
+    m_view_model(view_model)
 {
-
   m_ui.setupUi(this);
-
 }
 
 //=============================================================================
@@ -44,5 +46,9 @@ void vieAdventureRecordWindow::actionNewRecordButton()
 {
   auto new_adventure = std::make_unique<vieAdventureRecordWidget>();
   m_adventures.push_back(std::move(new_adventure));
-  m_ui.verticalLayout_2->addWidget(new_adventure.get());
+  vieAdventureRecordWidget* adventure = m_adventures[m_adventures.size() - 1].get();
+  QListWidgetItem* item = new QListWidgetItem();
+  item->setSizeHint(adventure->sizeHint());
+  m_ui.listWidget->addItem(item);
+  m_ui.listWidget->setItemWidget(item, adventure);
 }

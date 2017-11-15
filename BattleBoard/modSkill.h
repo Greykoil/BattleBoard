@@ -11,6 +11,8 @@
 // class predeclarations to avoid header file inclusion
 
 // types: classes, enums, typedefs
+class vwmSkill;
+class modSkillManager;
 
 //=============================================================================
 class modSkill {
@@ -24,9 +26,6 @@ public:
   );
   // Constructor
 
-  void add_prerequeset(std::string name);
-  // Add a pre-required skill
-
   std::string name() const;
   // Return the skill name
 
@@ -39,13 +38,22 @@ public:
   bool is_status() const;
   // Return if a skill costs status
 
+  void set_picks(int num_picks);
+  // Set m_num_picks
+
+  int total_cost() const;
+  // Return the total cost for the number of picks
+
+  int num_picks() const;
+  // The number of ranks of skill the character has
+
   modSkill(const modSkill&) = delete;
   // Deleted copy constructor.
 
   modSkill& operator=(const modSkill&) = delete;
   // Deleted assignment operator.
 
-  ~modSkill();
+  ~modSkill() = default;
   // Destructor
 
 protected:
@@ -66,6 +74,6 @@ private:
 
   bool m_status;
 
-  std::vector<std::string> m_prerequisits;
-  // The names of any skills that are pre-requisites for this skill
+  int m_num_picks;
+
 };

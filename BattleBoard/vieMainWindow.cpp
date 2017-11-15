@@ -10,35 +10,35 @@
 
 // includes from project
 #include "vieAdventureRecordWindow.h"
-#include "vieArmourWindow.h"
 #include "vieSkillWindow.h"
+#include "vieCharacterWindow.h"
+#include "vwmCharacter.h"
+// standard library includes
+#include <assert.h>
 
 //includes from QT
 #include <QVBoxLayout>
 
 //=============================================================================
-vieMainWindow::vieMainWindow(QWidget *parent)
+vieMainWindow::vieMainWindow(
+  vwmCharacter* character_view_model, 
+  QWidget *parent
+)
 // 
 //D Default constructor sets up the list list of tabs 
 // 
 //-----------------------------------------------------------------------------
 : QMainWindow(parent),
+  m_view_model(character_view_model),
   m_ui(),
   m_tab_list()
 {
-    m_ui.setupUi(this);
-    add_tabs();
+  assert(character_view_model != nullptr);
+  m_ui.setupUi(this);
+  m_view_model->set_main_window(this);
+  add_tabs();
 }
 
-//=============================================================================
-vieMainWindow::~vieMainWindow()
-//
-//D Default destructor
-//
-//-----------------------------------------------------------------------------
-{
-
-}
 
 //=============================================================================
 void vieMainWindow::add_tabs()
@@ -48,11 +48,10 @@ void vieMainWindow::add_tabs()
 //-----------------------------------------------------------------------------
 {
   // Add the tabs to storeage
-
-  m_tab_list.push_back(std::make_unique<vieSkillWindow>(&m_manager));
-  m_tab_list.push_back(std::make_unique<vieArmourWindow>());
-  m_tab_list.push_back(std::make_unique<vieAdventureRecordWindow>());
-
+  m_tab_list.push_back(std::make_unique<vieCharacterWindow>(m_view_model));
+  m_tab_list.push_back(std::make_unique<vieSkillWindow>(m_view_model->get_skill_view_model()));
+  m_tab_list.push_back(std::make_unique<vieAdventureRecordWindow>(m_view_model->get_adventure_record_view_model()));
+  
   // Add the tabs to the widget that displays them
   for (auto& window : m_tab_list) {
     m_ui.tabWidget->addTab(window.get(), window.get()->windowTitle());

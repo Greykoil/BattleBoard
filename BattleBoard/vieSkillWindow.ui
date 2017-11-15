@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>572</width>
-    <height>289</height>
+    <width>1100</width>
+    <height>438</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -155,6 +155,9 @@
         </spacer>
        </item>
       </layout>
+     </item>
+     <item>
+      <widget class="QListWidget" name="listWidget"/>
      </item>
     </layout>
    </item>

@@ -9,7 +9,6 @@
 
 // includes from our libraries
 #include "modSkill.h"
-
 // system includes
 #include <memory>
 #include <assert.h>
@@ -51,13 +50,17 @@ bool modSkillManager::create_skill_tree()
     skill_from_xml(skill);
     skill = skill->NextSiblingElement("Skill");
   }
+
+  //Check the skills that we have the pre-requs for
+
+
   return true;
 }
 
 //=============================================================================
 int modSkillManager::num_skills() const
 //
-//D The number of available skills
+//D
 //
 //-----------------------------------------------------------------------------
 {
@@ -65,13 +68,12 @@ int modSkillManager::num_skills() const
 }
 
 //=============================================================================
-modSkill* modSkillManager::skill(int num)
+modSkill * modSkillManager::skill(int num)
 //
-//D Get the nth skill. 
+//D
 //
 //-----------------------------------------------------------------------------
 {
-  assert(num < m_skill_tree.size());
   return m_skill_tree[num].get();
 }
 
@@ -101,13 +103,7 @@ bool modSkillManager::skill_from_xml(tinyxml2::XMLElement* node)
   XMLCheckResult(out);
   bool is_status = false;
   auto skill = std::make_unique<modSkill>(name, cost, max_picks, is_status);
-  
-  XMLElement* pre_req = node->FirstChildElement("Prerequisite");
-  while (pre_req != nullptr) {
-    std::string value = pre_req->Value();
-    skill->add_prerequeset(value);
-    pre_req = pre_req->NextSiblingElement("Skill");
-  }
+
   m_skill_tree.push_back(std::move(skill));
   return true;
 }

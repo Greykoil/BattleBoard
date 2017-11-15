@@ -12,13 +12,14 @@
 
 //includes from QT
 #include <QtWidgets/QMainWindow>
-
+#include <QDialog>
 // system includes
 #include <vector>
 #include <memory>
 
 // class predeclarations to avoid header file inclusion
-
+class vwmCharacter;
+class vieCharacterWindow;
 // types: classes, enums, typedefs
 
 //=============================================================================
@@ -27,7 +28,10 @@ class vieMainWindow : public QMainWindow
   Q_OBJECT
 
 public:
-  vieMainWindow(QWidget *parent = Q_NULLPTR);
+  vieMainWindow(
+    vwmCharacter* character_view_model,
+    QWidget *parent = Q_NULLPTR
+  );
   // Constructor
 
   vieMainWindow(const vieMainWindow&) = delete;
@@ -36,7 +40,7 @@ public:
   vieMainWindow& operator=(const vieMainWindow&) = delete;
   // Deleted assignment operator.
 
-  virtual ~vieMainWindow();
+  virtual ~vieMainWindow() = default;
   // Destructor
 
 
@@ -55,10 +59,7 @@ private slots:
 
 private:
 
-  //  ais::debug::<nnnn>
-  // This should be moved int a more appropriate owning class
-  // ais::end::debug::<nnnn>
-  vwmSkillPage m_manager;
+  vwmCharacter* m_view_model;
 
   std::vector<std::unique_ptr<QDialog>> m_tab_list;
   // The vector of tabs that this window is going to show
