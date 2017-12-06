@@ -14,7 +14,6 @@
 #include "vieCharacterWindow.h"
 #include "modCharacter.h"
 #include "vwmCharacter.h"
-#include "xmlWriter.h"
 // standard library includes
 #include <assert.h>
 
@@ -88,8 +87,7 @@ void vieMainWindow::actionOpen()
   if (file_name.isEmpty()) {
     return;
   }
-  xmlWriter reader;
-  reader.read_in_state(m_model, file_name.toStdString());
+  m_model->read_state(file_name.toStdString());
 }
 
 //=============================================================================
@@ -120,8 +118,7 @@ void vieMainWindow::actionSave()
   }
 
   // Now we want to pass the details over to the xml writing class
-  xmlWriter writer;
-  writer.write_out_state(m_model, file_name.toStdString());
+  m_model->write_state(file_name.toStdString());
 }
 
 //=============================================================================
