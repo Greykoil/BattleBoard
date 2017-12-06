@@ -21,8 +21,6 @@ vieSkillWindow::vieSkillWindow(
   QWidget* parent
 )
 //
-//D Default constructor
-//
 //-----------------------------------------------------------------------------
   : QDialog(parent),
     m_vm_manager(manager),
@@ -36,7 +34,7 @@ vieSkillWindow::vieSkillWindow(
   m_vm_manager->full_skill_list(m_full_skill_list);
   
   // Here is a list of skills to display
-  for (auto& skill : m_full_skill_list) {
+  for (std::unique_ptr<vieSkillWidget>& skill : m_full_skill_list) {
     QListWidgetItem* item = new QListWidgetItem();
     item->setSizeHint(skill.get()->sizeHint());
     auto pair = std::make_pair(skill.get(), item);
@@ -71,5 +69,7 @@ void vieSkillWindow::redraw()
 
   for (auto widget : m_all_skills) {
     widget.second->setHidden(!(widget.first->is_visable()));
+
+    widget.first->update_after_load();
   }
 }

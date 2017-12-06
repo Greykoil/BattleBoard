@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>950</width>
+    <width>1152</width>
     <height>711</height>
    </rect>
   </property>
@@ -29,7 +29,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>950</width>
+     <width>1152</width>
      <height>21</height>
     </rect>
    </property>
@@ -205,6 +205,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>tabWidget</sender>
+   <signal>currentChanged(int)</signal>
+   <receiver>MainWindowClass</receiver>
+   <slot>actionTabChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>286</x>
+     <y>209</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>4</x>
+     <y>61</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>actionOpen()</slot>
@@ -214,5 +230,6 @@
   <slot>actionSkills()</slot>
   <slot>actionAdventureRecord()</slot>
   <slot>actionTabed()</slot>
+  <slot>actionTabChanged(int)</slot>
  </slots>
 </ui>

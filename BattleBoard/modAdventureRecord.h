@@ -1,11 +1,11 @@
 //=============================================================================
-//D The model for the adventure record where all the logic happens.
+//D The details for a specific adventure record
 //
 // 
 //-----------------------------------------------------------------------------
 #pragma once
 // includes from our libraries
-
+#include "modState.h"
 // system includes
 
 // class predeclarations to avoid header file inclusion
@@ -13,38 +13,51 @@
 // types: classes, enums, typedefs
 class vieAdventureRecordWidget;
 
-namespace ADVENTURERECORD {
-  enum LENGTH {
+  enum ADVENTURE_RECORD_LENGTH {
     ADVENTURE_WEEKEND,
     SPECIAL,
     HEROQUEST,
-    OTHER
+    OTHER_LENGTH
   };
-  enum TYPE {
+  enum ADVENTURE_RECORD_TYPE {
     MONSTERED,
     REFFED,
     PLAYED,
-    UNKNOWN
+    OTHER_TYPE
   };
-}
+
 //=============================================================================
-class modAdventureRecord {
+class modAdventureRecord : public modState {
 public:
 
   modAdventureRecord(
-    ADVENTURERECORD::LENGTH length = ADVENTURERECORD::LENGTH::OTHER,
-    ADVENTURERECORD::TYPE type = ADVENTURERECORD::TYPE::UNKNOWN
+    ADVENTURE_RECORD_LENGTH length = ADVENTURE_RECORD_LENGTH::OTHER_LENGTH,
+    ADVENTURE_RECORD_TYPE type = ADVENTURE_RECORD_TYPE::OTHER_TYPE
   );
   // Constructor
+
+  virtual tinyxml2::XMLElement* convert_to_xml(
+    tinyxml2::XMLDocument* parent
+  ) const override;
+  // Convert the state into an xml element
+
+  virtual void load_from_xml(tinyxml2::XMLElement* element) override;
+  // Load the state from an xml element
 
   void set_view(vieAdventureRecordWidget* view);
   // Set m_view
 
-  void set_type(ADVENTURERECORD::TYPE type);
+  void set_type(ADVENTURE_RECORD_TYPE type);
   // Set m_type
 
-  void set_length(ADVENTURERECORD::LENGTH length);
+  ADVENTURE_RECORD_TYPE get_type() const;
+  // Get m_type
+
+  void set_length(ADVENTURE_RECORD_LENGTH length);
   // set m_length
+
+  ADVENTURE_RECORD_LENGTH get_length() const;
+  // Get m_length
 
   int get_points() const;
   // get m_points
@@ -65,6 +78,8 @@ protected:
 
   // functions
   void update_points();
+  // Update the number of points for the length/type combo
+
   // variables
 
 private:
@@ -72,10 +87,14 @@ private:
   // friends
   // functions
   // variables
-  ADVENTURERECORD::LENGTH m_length;
-  ADVENTURERECORD::TYPE m_type;
+  
+  ADVENTURE_RECORD_LENGTH m_length;
+  
+  ADVENTURE_RECORD_TYPE m_type;
 
   int m_points;
+  // The points gained for the event
 
   vieAdventureRecordWidget* m_view;
+  // The gui element that will display the event details
 };

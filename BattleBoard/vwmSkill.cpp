@@ -58,8 +58,7 @@ std::unique_ptr<vieSkillWidget> vwmSkill::make_widget()
     this,
     QString::fromStdString(m_skill_model->name()),
     m_skill_model->cost_per_rank(),
-    m_skill_model->max_picks(),
-    m_skill_model->is_status()
+    m_skill_model->max_picks()
   );
 }
 
@@ -94,12 +93,26 @@ bool vwmSkill::change_num_picks(int num_picks)
   return true;
 }
 
+//=============================================================================
 int vwmSkill::num_picks()
+//
+//-----------------------------------------------------------------------------
 {
   return m_skill_model->num_picks();
 }
 
+//=============================================================================
+int vwmSkill::total_cost()
+//
+//-----------------------------------------------------------------------------
+{
+  return m_skill_model->total_cost();
+}
+
+//=============================================================================
 std::string vwmSkill::name()
+//
+//-----------------------------------------------------------------------------
 {
   return m_skill_model->name();
 }

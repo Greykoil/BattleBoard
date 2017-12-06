@@ -3,11 +3,10 @@
 //
 //  Manages skills, adventure record
 //
-// TO DO: Expand the class to include items, armour, hq abilities
-// 
 //-----------------------------------------------------------------------------
 #pragma once
 // includes from our libraries
+#include "modState.h"
 #include "modSkillManager.h"
 #include "modAdventureRecordManager.h"
 // system includes
@@ -33,7 +32,7 @@ namespace CHARACTER {
 };
 
 //=============================================================================
-class modCharacter {
+class modCharacter : public modState {
 public:
 
   modCharacter(
@@ -50,6 +49,18 @@ public:
 
   modAdventureRecordManager* get_adventure_record_manager();
   // Return m_adventure_record_manger
+
+  void read_state(std::string file_name);
+  // read the xml file and turn it into a character state
+
+  void write_state(std::string file_name);
+  // Write out the character state to the given file
+
+  virtual tinyxml2::XMLElement* convert_to_xml(tinyxml2::XMLDocument* parent) const override;
+  // Convert the state into an xml element
+
+  virtual void load_from_xml(tinyxml2::XMLElement* element) override;
+  // Load the state from an xml element
 
   modCharacter(const modCharacter&) = delete;
   // Deleted copy constructor.

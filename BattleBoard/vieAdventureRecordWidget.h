@@ -41,7 +41,7 @@ public:
   vieAdventureRecordWidget& operator=(const vieAdventureRecordWidget&) = delete;
   // Deleted assignment operator.
 
-  virtual ~vieAdventureRecordWidget();
+  virtual ~vieAdventureRecordWidget() = default;
   // Destructor
 
 protected:
@@ -49,9 +49,13 @@ protected:
 private slots:
 
   void actionLengthBoxChanged(QString length);
-  void actionTypeBoxChanged(QString type);
-  void actionPointsBoxChanged(QString points);
+  // Called when the user changes the Length Drop down
 
+  void actionTypeBoxChanged(QString type);
+  // Called when the user changes the type drop down
+
+  void actionPointsBoxChanged(QString points);
+  // Called when the user changes the points box
 
 private:
     Ui::AdventureRecordWidget m_ui;

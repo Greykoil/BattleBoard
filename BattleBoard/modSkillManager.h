@@ -5,9 +5,9 @@
 //-----------------------------------------------------------------------------
 #pragma once
 // includes from our libraries
-#include "3rdPartyXml\tinyxml2.h"
 
 #include "modSkill.h"
+#include "modState.h"
 // system includes
 #include <vector>
 #include <memory>
@@ -17,11 +17,21 @@ class vwmSkillPage;
 // types: classes, enums, typedefs
 
 //=============================================================================
-class modSkillManager {
+class modSkillManager : public modState {
 public:
 
   modSkillManager();
   // Constructor
+
+  void set_view_model(vwmSkillPage* view_model);
+
+  virtual tinyxml2::XMLElement* convert_to_xml(
+    tinyxml2::XMLDocument* parent
+  ) const override;
+  // Convert the state into an xml element
+
+  virtual void load_from_xml(tinyxml2::XMLElement* element) override;
+  // Load the state from an xml element
 
   bool create_skill_tree();
   // Create the skill tree 
@@ -48,6 +58,7 @@ protected:
 
   // functions
   bool skill_from_xml(tinyxml2::XMLElement* node);
+  // Create a skill from the xml node
 
   // variables
 

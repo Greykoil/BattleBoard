@@ -42,9 +42,6 @@ public:
   void redraw();
   // Redraw the list of available skills
 
-  void update_points();
-  // Update the available points
-
   vieSkillWindow(const vieSkillWindow&) = delete;
   // Deleted copy constructor.
 

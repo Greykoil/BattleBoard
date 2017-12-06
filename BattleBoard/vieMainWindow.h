@@ -58,6 +58,7 @@ private slots:
   void actionOpen();
   void actionNew();
   void actionSave();
+  void actionTabChanged(int index);
 
 private:
 

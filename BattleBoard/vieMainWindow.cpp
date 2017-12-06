@@ -27,8 +27,6 @@ vieMainWindow::vieMainWindow(
   QWidget *parent
 )
 // 
-//D Default constructor sets up the list list of tabs 
-// 
 //-----------------------------------------------------------------------------
 : QMainWindow(parent),
   m_view_model(character_view_model),
@@ -57,11 +55,15 @@ void vieMainWindow::add_tabs()
     m_view_model->get_skill_view_model(),
     m_view_model->get_skill_view_model()->get_skill_model(),
     m_view_model->get_character_model()
-    );
+  );
 
   m_tab_list.push_back(std::move(skill_window));
 
-  m_tab_list.push_back(std::make_unique<vieAdventureRecordWindow>(m_model->get_adventure_record_manager()));
+  m_tab_list.push_back(
+    std::make_unique<vieAdventureRecordWindow>(
+      m_model->get_adventure_record_manager()
+    )
+  );
   
   // Add the tabs to the widget that displays them
   for (auto& window : m_tab_list) {
@@ -73,11 +75,19 @@ void vieMainWindow::add_tabs()
 void vieMainWindow::actionOpen()
 //
 //D Called when the open file menu button is pushed. 
-// To Do: Make this actually open a file
 //
 //-----------------------------------------------------------------------------
 {
-
+  QString file_name = QFileDialog::getOpenFileName(
+    this, 
+    "Open Character Sheet", 
+    "", 
+    "XML File (*.xml)"
+  );
+  if (file_name.isEmpty()) {
+    return;
+  }
+  m_model->read_state(file_name.toStdString());
 }
 
 //=============================================================================
@@ -96,7 +106,31 @@ void vieMainWindow::actionSave()
 //0 Called when the save file button is pushed
 //
 //-----------------------------------------------------------------------------
-
 {
+  QString file_name = QFileDialog::getSaveFileName(
+    this, 
+    "Save character sheet", 
+    "", 
+    "XML file (*.xml)"
+  );
+  if (file_name.isEmpty()) {
+    return;
+  }
 
+  // Now we want to pass the details over to the xml writing class
+  m_model->write_state(file_name.toStdString());
+}
+
+//=============================================================================
+void vieMainWindow::actionTabChanged(int index)
+//
+//D Make sure that the tab we are moving to has been redrawn
+//
+//-----------------------------------------------------------------------------
+{
+  // If we have moved to the skills tab update it.
+  vieSkillWindow* window = dynamic_cast<vieSkillWindow*>(m_tab_list[index].get());
+  if (window != nullptr) {
+    window->redraw();
+  }
 }

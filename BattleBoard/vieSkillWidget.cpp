@@ -21,12 +21,8 @@ vieSkillWidget::vieSkillWidget(
   QString name, 
   int cost_per_rank,
   int max_picks,
-  bool status_skill,
-  int num_bought,
   QWidget *parent
 )
-//
-//D Construct the visable widget and assign the labels
 //
 //-----------------------------------------------------------------------------
   : QWidget(parent),
@@ -38,20 +34,15 @@ vieSkillWidget::vieSkillWidget(
   m_ui.costLabel->setText(QString::number(cost_per_rank));
   m_ui.maxPicksLabel->setText(QString::number(max_picks));
   m_ui.nameLabel->setText(name);
-  if (status_skill) {
-    m_ui.statusSkillCheck->setCheckState(Qt::Checked);
-  }
   m_ui.statusSkillCheck->setAttribute(Qt::WA_TransparentForMouseEvents);
   m_ui.statusSkillCheck->setFocusPolicy(Qt::NoFocus);
-  m_ui.numberBoughtEdit->setText(QString::number(num_bought));
-  m_ui.totalCostLabel->setText(QString::number(num_bought * cost_per_rank));
 }
 
 
 //=============================================================================
 void vieSkillWidget::actionNumberPicksBoxChanged(QString new_text)
 //
-//D Called when the user changes the number of 
+//D Called when the user changes the number of  picks for the skill
 //
 //-----------------------------------------------------------------------------
 {
@@ -90,5 +81,16 @@ bool vieSkillWidget::is_visable()
 //-----------------------------------------------------------------------------
 {
   return m_view_model->is_visable();
+}
+
+//=============================================================================
+void vieSkillWidget::update_after_load()
+//
+//D Update the displayed details after a skill has been loaded
+//
+//-----------------------------------------------------------------------------
+{
+  m_ui.numberBoughtEdit->setText(QString::number(m_view_model->num_picks()));
+  m_ui.totalCostLabel->setText(QString::number(m_view_model->total_cost()));
 }
 

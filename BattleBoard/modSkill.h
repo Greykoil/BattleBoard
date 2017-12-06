@@ -1,11 +1,12 @@
 //=============================================================================
 //D Class for the default skill model. 
 //
-// A default skill has traits of name, picks, cost etx
+// A default skill has traits of name, picks, cost etc
 //
 //-----------------------------------------------------------------------------
 #pragma once
 // includes from our libraries
+#include "modState.h"
 // system includes
 #include <vector>
 // class predeclarations to avoid header file inclusion
@@ -15,7 +16,7 @@ class modSkillManager;
 // types: classes, enums, typedefs
 
 //=============================================================================
-class modSkill {
+class modSkill : public modState {
 public:
 
   modSkill(
@@ -27,18 +28,23 @@ public:
   );
   // Constructor
 
+  virtual tinyxml2::XMLElement* convert_to_xml(
+    tinyxml2::XMLDocument* parent
+  ) const override;
+  // Convert the state into an xml element
+
+  virtual void load_from_xml(tinyxml2::XMLElement* element) override;
+  // Load the state from an xml element
+
   std::string name() const;
-  // Return the skill name
+  // Return m_name 
 
   int cost_per_rank() const;
-  // Return the cost for each rank in the skill
+  // Return m_cost_per_rank
 
   int max_picks() const;
-  // Return the maximun number of times a skill can be taken
+  // Return m_max_picks
 
-  bool is_status() const;
-  // Return if a skill costs status
-  
   bool set_picks(int num_picks);
   // Set m_num_picks
   // Return false if it breaks the dependency graph (and does not change picks)
@@ -47,10 +53,10 @@ public:
   // Return the total cost for the number of picks
 
   int num_picks() const;
-  // The number of ranks of skill the character has
+  // The m_num_picks
 
   bool is_pickable() const;
-  // Can the user pick the skill
+  // Return m_pickable (based on pre-requisites having been picked)
 
   modSkill(const modSkill&) = delete;
   // Deleted copy constructor.
@@ -82,8 +88,6 @@ private:
   int m_cost;
 
   int m_max_picks;
-
-  bool m_status;
 
   int m_num_picks;
 

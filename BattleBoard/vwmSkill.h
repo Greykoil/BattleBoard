@@ -39,8 +39,13 @@ public:
   // Update everthing that needs it
 
   int num_picks();
+  // Return m_num_picks
+
+  int total_cost(); 
+  // The total cost for the num picks of the skill
 
   std::string name();
+  // Return m_name
 
   vwmSkill(const vwmSkill&) = delete;
   // Deleted copy constructor.

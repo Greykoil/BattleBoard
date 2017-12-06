@@ -31,8 +31,6 @@ public:
     QString name,
     int cost_per_rank,
     int max_picks,
-    bool status_skill,
-    int num_bought = 0,
     QWidget *parent = Q_NULLPTR
   );
   // Constructor
@@ -42,6 +40,9 @@ public:
 
   bool is_visable();
   // Is the skill visable as a pickable skill 
+
+  void update_after_load();
+  // Update the deatils after a file has been loaded
 
   vieSkillWidget(const vieSkillWidget&) = delete;
   // Deleted copy constructor.
