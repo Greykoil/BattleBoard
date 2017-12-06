@@ -23,6 +23,7 @@
 class vieAdventureRecordWidget;
 class vwmAdventureRecordManager;
 class modAdventureRecordManager;
+class modAdventureRecord;
 
 //=============================================================================
 class vieAdventureRecordWindow : public QDialog
@@ -37,14 +38,21 @@ public:
   );
   // Constructor
 
+  void update_after_load();
+  // The file has been loaded, update the view.
+
   vieAdventureRecordWindow(const vieAdventureRecordWindow&) = delete;
   // Deleted copy constructor.
 
   vieAdventureRecordWindow& operator=(const vieAdventureRecordWindow&) = delete;
   // Deleted assignment operator.
 
-  virtual ~vieAdventureRecordWindow();
+  virtual ~vieAdventureRecordWindow() = default;
   // Destructor
+
+protected:
+  void add_record_widget(modAdventureRecord* record);
+  // A new a new widget to the list for record
 
 
 private slots:

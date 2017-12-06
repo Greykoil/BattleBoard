@@ -26,11 +26,6 @@
       <widget class="QComboBox" name="lengthBox">
        <item>
         <property name="text">
-         <string>Other</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
          <string>Adventure Weekend</string>
         </property>
        </item>
@@ -44,13 +39,23 @@
          <string>Heroquest</string>
         </property>
        </item>
+       <item>
+        <property name="text">
+         <string>Other</string>
+        </property>
+       </item>
       </widget>
      </item>
      <item>
       <widget class="QComboBox" name="typeBox">
        <item>
         <property name="text">
-         <string>Other</string>
+         <string>Monstered</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Reffed</string>
         </property>
        </item>
        <item>
@@ -60,12 +65,7 @@
        </item>
        <item>
         <property name="text">
-         <string>Monstered</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reffed</string>
+         <string>Other</string>
         </property>
        </item>
       </widget>

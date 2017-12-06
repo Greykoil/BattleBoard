@@ -27,6 +27,24 @@ vwmSkillPage::vwmSkillPage(
     m_skills()
 {
   assert(m_model_skill_page != nullptr);
+  m_model_skill_page->set_view_model(this);
+}
+
+//=============================================================================
+modSkillManager * vwmSkillPage::get_skill_model()
+//
+//-----------------------------------------------------------------------------
+{
+  return m_model_skill_page;
+}
+
+//=============================================================================
+void vwmSkillPage::set_view(vieSkillWindow * view)
+//
+//-----------------------------------------------------------------------------
+{
+  assert(view != nullptr);
+  m_view = view;
 }
 
 //=============================================================================

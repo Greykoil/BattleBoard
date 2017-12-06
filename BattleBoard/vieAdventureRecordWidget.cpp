@@ -21,24 +21,19 @@ vieAdventureRecordWidget::vieAdventureRecordWidget(
   QWidget *parent
 )
 //
-//D
-//
 //-----------------------------------------------------------------------------
   : QGroupBox(parent),
     m_model(model)
 {
     m_ui.setupUi(this);
     m_model->set_view(this);
+    
+    // Setup based on the model
+    m_ui.lengthBox->setCurrentIndex(model->get_length());
+    m_ui.typeBox->setCurrentIndex(model->get_type());
+    m_ui.pointsBox->setText(QString::number(model->get_points()));
 }
 
-//=============================================================================
-vieAdventureRecordWidget::~vieAdventureRecordWidget()
-//
-//D
-//
-//-----------------------------------------------------------------------------
-{
-}
 
 //=============================================================================
 void vieAdventureRecordWidget::set_points(int points)
@@ -53,19 +48,19 @@ void vieAdventureRecordWidget::set_points(int points)
 //=============================================================================
 void vieAdventureRecordWidget::actionLengthBoxChanged(QString length)
 //
-//D Update the model with the new type
+//D Update the model with the new length
 //
 //-----------------------------------------------------------------------------
 {
-  ADVENTURERECORD::LENGTH ar_length;
+  ADVENTURE_RECORD_LENGTH ar_length;
   if (length == "Heroquest") {
-    ar_length = ADVENTURERECORD::LENGTH::HEROQUEST;
+    ar_length = ADVENTURE_RECORD_LENGTH::HEROQUEST;
   } else if (length == "Special") {
-    ar_length = ADVENTURERECORD::LENGTH::SPECIAL;
+    ar_length = ADVENTURE_RECORD_LENGTH::SPECIAL;
   } else if (length == "Adventure Weekend") {
-    ar_length = ADVENTURERECORD::LENGTH::ADVENTURE_WEEKEND;
+    ar_length = ADVENTURE_RECORD_LENGTH::ADVENTURE_WEEKEND;
   } else {
-    ar_length = ADVENTURERECORD::LENGTH::OTHER;
+    ar_length = ADVENTURE_RECORD_LENGTH::OTHER_LENGTH;
   }
   m_model->set_length(ar_length);
 }
@@ -73,19 +68,19 @@ void vieAdventureRecordWidget::actionLengthBoxChanged(QString length)
 //=============================================================================
 void vieAdventureRecordWidget::actionTypeBoxChanged(QString type)
 //
-//D
+//D Update the model with the new type
 //
 //-----------------------------------------------------------------------------
 {
-  ADVENTURERECORD::TYPE ar_type;
+  ADVENTURE_RECORD_TYPE ar_type;
   if (type == "Played") {
-    ar_type = ADVENTURERECORD::TYPE::PLAYED;
+    ar_type = ADVENTURE_RECORD_TYPE::PLAYED;
   } else if (type == "Monstered") {
-    ar_type = ADVENTURERECORD::TYPE::MONSTERED;
+    ar_type = ADVENTURE_RECORD_TYPE::MONSTERED;
   } else if (type == "Reffed") {
-    ar_type = ADVENTURERECORD::TYPE::REFFED;
+    ar_type = ADVENTURE_RECORD_TYPE::REFFED;
   } else {
-    ar_type = ADVENTURERECORD::TYPE::UNKNOWN;
+    ar_type = ADVENTURE_RECORD_TYPE::OTHER_TYPE;
   }
   m_model->set_type(ar_type);
 }

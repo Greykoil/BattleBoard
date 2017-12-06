@@ -28,10 +28,11 @@ public:
   // Constructor
 
 
-  modSkillManager* get_skill_model() { return m_model_skill_page; }
+  modSkillManager* get_skill_model();
+  // return m_model_skill_page
 
-  void set_view(vieSkillWindow* view) { m_view = view; }
-
+  void set_view(vieSkillWindow* view);
+  // set m_view
 
   void full_skill_list(std::vector<std::unique_ptr<vieSkillWidget>>& vector);
   // Construct the initial list of visable skill widgets

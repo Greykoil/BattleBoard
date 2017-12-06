@@ -59,6 +59,12 @@
     <Filter Include="Source Files\ViewModel">
       <UniqueIdentifier>{210d94e7-8a99-4c49-aea3-d08555eef744}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\XMLReaderWriter">
+      <UniqueIdentifier>{29612c2d-a45a-41d1-8dec-9ddd87961847}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\XMLReaderWriter">
+      <UniqueIdentifier>{4dd1d250-41d9-4dfd-af21-af7d6365ec08}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -148,6 +154,12 @@
     <ClCompile Include="vieCharacterWindow.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
+    <ClCompile Include="xmlWriter.cpp">
+      <Filter>Source Files\XMLReaderWriter</Filter>
+    </ClCompile>
+    <ClCompile Include="modState.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="MainWindow.qrc">
@@ -187,6 +199,9 @@
       <Filter>Header Files\View</Filter>
     </CustomBuild>
     <CustomBuild Include="vieCharacterWindow.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieSaveWindow.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
   </ItemGroup>
@@ -235,6 +250,15 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_vieCharacterWindow.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xmlWriter.h">
+      <Filter>Header Files\XMLReaderWriter</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieSaveWindow.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="modState.h">
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

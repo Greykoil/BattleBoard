@@ -1,7 +1,7 @@
 //=============================================================================
 //D Class for the default skill model. 
 //
-// A default skill has traits of name, picks, cost etx
+// A default skill has traits of name, picks, cost etc
 //
 //-----------------------------------------------------------------------------
 // includes from our libraries
@@ -19,14 +19,13 @@ modSkill::modSkill(
   std::vector<modSkill*> prerequisites
 )
 //
-//D Constructor. Sets up members and adds this skill as a dependent to any
+//D Sets up members and adds this skill as a dependent to any
 //  prerequisites
 //
 //-----------------------------------------------------------------------------
   : m_name(a_name),
     m_cost(a_cost),
     m_max_picks(a_max_picks),
-    m_status(a_status),
     m_num_picks(0),
     m_prerequisite_skills(prerequisites),
     m_pickable(false)
@@ -38,9 +37,35 @@ modSkill::modSkill(
 }
 
 //=============================================================================
-int modSkill::num_picks() const
+tinyxml2::XMLElement * modSkill::convert_to_xml(
+  tinyxml2::XMLDocument* parent
+) const
 //
-//D The ranks of the skill the character has
+//D Convert the skill to an xml element
+//
+//-----------------------------------------------------------------------------
+{
+  tinyxml2::XMLElement* element = parent->NewElement("Skill");
+  element->SetAttribute("Name", m_name.c_str());
+  element->SetAttribute("Picks", m_num_picks);
+  return element;
+}
+
+//=============================================================================
+void modSkill::load_from_xml(tinyxml2::XMLElement * element)
+//
+//D Load the skill details from an xml element
+//
+//-----------------------------------------------------------------------------
+{
+  // All that we should need to do is set the number of picks
+  element->QueryIntAttribute("Picks", &m_num_picks);
+  set_picks(m_num_picks);
+
+}
+
+//=============================================================================
+int modSkill::num_picks() const
 //
 //-----------------------------------------------------------------------------
 {
@@ -49,8 +74,6 @@ int modSkill::num_picks() const
 
 //=============================================================================
 bool modSkill::is_pickable() const
-//
-//D Have all the prerequisites for this skill been taken?
 //
 //-----------------------------------------------------------------------------
 {
@@ -92,8 +115,6 @@ void modSkill::update_pickable_state()
 //=============================================================================
 std::string modSkill::name() const
 //
-//D Get the skill name
-//
 //-----------------------------------------------------------------------------
 {
   return m_name;
@@ -101,8 +122,6 @@ std::string modSkill::name() const
 
 //=============================================================================
 int modSkill::cost_per_rank() const
-//
-//D Get the cost for the next rank of a skill
 //
 //-----------------------------------------------------------------------------
 {
@@ -112,21 +131,9 @@ int modSkill::cost_per_rank() const
 //=============================================================================
 int modSkill::max_picks() const
 //
-//D Get the maximum number of allowed picks
-//
 //-----------------------------------------------------------------------------
 {
   return m_max_picks;
-}
-
-//=============================================================================
-bool modSkill::is_status() const
-//
-//D Does the skill cost status
-//
-//-----------------------------------------------------------------------------
-{
-  return false;
 }
 
 //=============================================================================

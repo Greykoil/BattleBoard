@@ -102,6 +102,7 @@
     <ClCompile Include="modAdventureRecord.cpp" />
     <ClCompile Include="modAdventureRecordManager.cpp" />
     <ClCompile Include="modCharacter.cpp" />
+    <ClCompile Include="modState.cpp" />
     <ClCompile Include="vieAdventureRecordWidget.cpp" />
     <ClCompile Include="vieAdventureRecordWindow.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_vieAdventureRecordWidget.cpp">
@@ -126,6 +127,7 @@
     <ClCompile Include="vwmSkill.cpp" />
     <ClCompile Include="vieSkillWidget.cpp" />
     <ClCompile Include="vieSkillWindow.cpp" />
+    <ClCompile Include="xmlWriter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="vieMainWindow.ui">
@@ -145,12 +147,15 @@
     <ClInclude Include="GeneratedFiles\ui_vieAdventureRecordWindow.h" />
     <ClInclude Include="GeneratedFiles\ui_vieCharacterWindow.h" />
     <ClInclude Include="GeneratedFiles\ui_vieMainWindow.h" />
+    <ClInclude Include="GeneratedFiles\ui_vieSaveWindow.h" />
     <ClInclude Include="GeneratedFiles\ui_vieSkillWidget.h" />
     <ClInclude Include="GeneratedFiles\ui_vieSkillWindow.h" />
     <ClInclude Include="modAdventureRecord.h" />
     <ClInclude Include="modAdventureRecordManager.h" />
     <ClInclude Include="modCharacter.h" />
     <ClInclude Include="modSkill.h" />
+    <ClInclude Include="modState.h" />
+    <ClInclude Include="xmlWriter.h" />
     <CustomBuild Include="vieMainWindow.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing vieMainWindow.h...</Message>
@@ -281,6 +286,18 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="vieCharacterWindow.ui">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="vieSaveWindow.ui">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>

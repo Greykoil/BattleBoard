@@ -6,6 +6,7 @@
 
 // Class header include 
 #include "modSkillManager.h"
+#include "vwmSkillPage.h"
 
 // includes from our libraries
 #include "modSkill.h"
@@ -23,12 +24,60 @@ using namespace tinyxml2;
 //=============================================================================
 modSkillManager::modSkillManager()
 //
-// Default constructor
-//
 //-----------------------------------------------------------------------------
-  : m_skill_tree()
+  : m_skill_tree(),
+    m_view_model(nullptr)
 {
 
+}
+
+//=============================================================================
+void modSkillManager::set_view_model(vwmSkillPage * view_model)
+//
+//-----------------------------------------------------------------------------
+{
+  assert(view_model != nullptr);
+  m_view_model = view_model;
+}
+
+//=============================================================================
+tinyxml2::XMLElement * modSkillManager::convert_to_xml(
+  tinyxml2::XMLDocument* parent
+) const
+//
+//D Turn the list of skills into an xml element
+//
+//-----------------------------------------------------------------------------
+{
+
+  tinyxml2::XMLElement* element = parent->NewElement("Skills_List");
+  for (auto& skill : m_skill_tree) {
+    tinyxml2::XMLElement* child_element = skill->convert_to_xml(parent);
+    element->InsertEndChild(child_element);
+  }
+  return element;
+}
+
+//=============================================================================
+void modSkillManager::load_from_xml(tinyxml2::XMLElement* element)
+//
+//D Turn an xml element into a list of skills
+//
+//-----------------------------------------------------------------------------
+{
+  tinyxml2::XMLElement* child_element = element->FirstChildElement("Skill");
+  while (child_element != nullptr) {
+    // Find the corresponding skill in the skill tree
+    std::string name = child_element->Attribute("Name");
+    for (auto& skill : m_skill_tree) {
+      if (skill->name() == name) {
+        skill->load_from_xml(child_element);
+        break;
+      }
+    }
+    child_element = child_element->NextSiblingElement("Skill");
+  }
+  m_view_model->update_displayed_skills();
 }
 
 //=============================================================================
@@ -51,9 +100,6 @@ bool modSkillManager::create_skill_tree()
     skill = skill->NextSiblingElement("Skill");
   }
 
-  //Check the skills that we have the pre-requs for
-
-
   return true;
 }
 
@@ -74,8 +120,6 @@ int modSkillManager::total_points_spent()
 //=============================================================================
 int modSkillManager::num_skills() const
 //
-//D Get the number of available skills
-//
 //-----------------------------------------------------------------------------
 {
   return m_skill_tree.size();
@@ -83,8 +127,6 @@ int modSkillManager::num_skills() const
 
 //=============================================================================
 modSkill* modSkillManager::skill(int num)
-//
-//D Get the n'th skill
 //
 //-----------------------------------------------------------------------------
 {
@@ -123,7 +165,14 @@ bool modSkillManager::skill_from_xml(tinyxml2::XMLElement* node)
 
   bool is_status = false;
 
-  m_skill_tree.push_back(std::make_unique<modSkill>(name, cost, max_picks, is_status, pre_reqs));
+  m_skill_tree.push_back(std::make_unique<modSkill>(
+    name, 
+    cost, 
+    max_picks, 
+    is_status, 
+    pre_reqs
+  ));
+
   return true;
 }
 
