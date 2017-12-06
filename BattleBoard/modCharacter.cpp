@@ -54,6 +54,35 @@ modAdventureRecordManager* modCharacter::get_adventure_record_manager()
 }
 
 //=============================================================================
+void modCharacter::read_state(std::string file_name)
+//
+//D Read the given xml file and construct a character state from it
+//
+//-----------------------------------------------------------------------------
+{
+  tinyxml2::XMLDocument xmlDoc;
+  tinyxml2::XMLError result = xmlDoc.LoadFile(file_name.c_str());
+  tinyxml2::XMLNode* root = xmlDoc.FirstChild();
+  tinyxml2::XMLElement* element = root->FirstChildElement("Character");
+  load_from_xml(element);
+}
+
+//=============================================================================
+void modCharacter::write_state(std::string file_name)
+//
+//D Write the current character state out to an xml file.
+//
+//-----------------------------------------------------------------------------
+{
+  tinyxml2::XMLDocument xmlDoc;
+  tinyxml2::XMLNode* root = xmlDoc.NewElement("Root");
+  xmlDoc.InsertFirstChild(root);
+  tinyxml2::XMLElement* character_node = convert_to_xml(&xmlDoc);
+  root->InsertEndChild(character_node);
+  tinyxml2::XMLError eResult = xmlDoc.SaveFile(file_name.c_str());
+}
+
+//=============================================================================
 tinyxml2::XMLElement * modCharacter::convert_to_xml(
   tinyxml2::XMLDocument* parent
 ) const

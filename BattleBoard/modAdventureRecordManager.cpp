@@ -43,6 +43,7 @@ void modAdventureRecordManager::load_from_xml(tinyxml2::XMLElement* element)
 //
 //-----------------------------------------------------------------------------
 {
+  m_adventures.clear();
   tinyxml2::XMLElement* child_element = element->FirstChildElement("Adventure");
   while (child_element != nullptr) {
     auto record = std::make_unique<modAdventureRecord>();

@@ -33,6 +33,7 @@ void vieAdventureRecordWindow::update_after_load()
 //
 //-----------------------------------------------------------------------------
 {
+  m_ui.listWidget->clear();
   for (int i = 0; i < m_model->num_adventures(); ++i) {
     add_record_widget(m_model->adventure(i));
   }
