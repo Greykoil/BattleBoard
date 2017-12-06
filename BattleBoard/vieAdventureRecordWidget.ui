@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>719</width>
-    <height>388</height>
+    <width>872</width>
+    <height>387</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -90,8 +90,8 @@
    <slot>actionDateBoxChanged(QDate)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>56</x>
-     <y>165</y>
+     <x>67</x>
+     <y>202</y>
     </hint>
     <hint type="destinationlabel">
      <x>62</x>
@@ -106,8 +106,8 @@
    <slot>actionTitleBoxChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>142</x>
-     <y>168</y>
+     <x>240</x>
+     <y>202</y>
     </hint>
     <hint type="destinationlabel">
      <x>168</x>
@@ -122,8 +122,8 @@
    <slot>actionLengthBoxChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>312</x>
-     <y>164</y>
+     <x>407</x>
+     <y>202</y>
     </hint>
     <hint type="destinationlabel">
      <x>336</x>
@@ -138,8 +138,8 @@
    <slot>actionTypeBoxChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>391</x>
-     <y>163</y>
+     <x>490</x>
+     <y>202</y>
     </hint>
     <hint type="destinationlabel">
      <x>434</x>
@@ -154,8 +154,8 @@
    <slot>actionPointsBoxChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>539</x>
-     <y>168</y>
+     <x>675</x>
+     <y>202</y>
     </hint>
     <hint type="destinationlabel">
      <x>556</x>
@@ -170,8 +170,8 @@
    <slot>actionDeathsBoxChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>671</x>
-     <y>168</y>
+     <x>860</x>
+     <y>202</y>
     </hint>
     <hint type="destinationlabel">
      <x>674</x>

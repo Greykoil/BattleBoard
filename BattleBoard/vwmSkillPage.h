@@ -6,11 +6,11 @@
 #pragma once
 // includes from our libraries
 #include "modSkillManager.h"
+#include "vwmSkill.h"
 // system includes
 #include <vector>
 #include <memory>
 // class predeclarations to avoid header file inclusion
-class vwmSkill;
 class vieSkillWidget;
 class modSkillManager;
 class vwmCharacter;
@@ -26,6 +26,9 @@ public:
     vwmCharacter* parent
   );
   // Constructor
+
+
+  modSkillManager* get_skill_model() { return m_model_skill_page; }
 
   void set_view(vieSkillWindow* view) { m_view = view; }
 

@@ -22,6 +22,7 @@
 // types: classes, enums, typedefs
 class vieAdventureRecordWidget;
 class vwmAdventureRecordManager;
+class modAdventureRecordManager;
 
 //=============================================================================
 class vieAdventureRecordWindow : public QDialog
@@ -31,7 +32,7 @@ class vieAdventureRecordWindow : public QDialog
 public:
 
   vieAdventureRecordWindow(
-    vwmAdventureRecordManager* view_model,
+    modAdventureRecordManager* model,
     QWidget *parent = Q_NULLPTR
   );
   // Constructor
@@ -53,7 +54,7 @@ private slots:
 
 private:
 
-  vwmAdventureRecordManager* m_view_model;
+  modAdventureRecordManager* m_model;
 
   std::vector<std::unique_ptr<vieAdventureRecordWidget>> m_adventures;
   // The list of visable adventures

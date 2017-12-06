@@ -16,6 +16,7 @@
 // system includes
 
 // class predeclarations to avoid header file inclusion
+class modAdventureRecord;
 // types: classes, enums, typedefs
 
 //=============================================================================
@@ -25,8 +26,14 @@ class vieAdventureRecordWidget : public QGroupBox
 
 public:
 
-  vieAdventureRecordWidget(QWidget *parent = Q_NULLPTR);
+  vieAdventureRecordWidget(
+    modAdventureRecord* view_model,
+    QWidget *parent = Q_NULLPTR
+  );
   // Constructor
+
+  void set_points(int points);
+  // Set the number of points that the user sees
 
   vieAdventureRecordWidget(const vieAdventureRecordWidget&) = delete;
   // Deleted copy constructor.
@@ -37,17 +44,17 @@ public:
   virtual ~vieAdventureRecordWidget();
   // Destructor
 
-
 protected:
-  
-  void update_points();
-  // Check if we can fill in points automatically and if so then do it
 
 private slots:
 
   void actionLengthBoxChanged(QString length);
   void actionTypeBoxChanged(QString type);
+  void actionPointsBoxChanged(QString points);
+
 
 private:
     Ui::AdventureRecordWidget m_ui;
+
+    modAdventureRecord* m_model;
 };

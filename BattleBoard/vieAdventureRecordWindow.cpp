@@ -8,13 +8,13 @@
 
 // includes from project
 #include "vieAdventureRecordWidget.h"
-
+#include "modAdventureRecordManager.h"
 //includes from QT
 #include <QTWidgets>
 
 //=============================================================================
 vieAdventureRecordWindow::vieAdventureRecordWindow(
-  vwmAdventureRecordManager* view_model, 
+  modAdventureRecordManager* model, 
   QWidget *parent
 )
 //
@@ -22,7 +22,7 @@ vieAdventureRecordWindow::vieAdventureRecordWindow(
 //
 //-----------------------------------------------------------------------------
   : QDialog(parent),
-    m_view_model(view_model)
+    m_model(model)
 {
   m_ui.setupUi(this);
 }
@@ -44,8 +44,10 @@ void vieAdventureRecordWindow::actionNewRecordButton()
 //
 //-----------------------------------------------------------------------------
 {
-  auto new_adventure = std::make_unique<vieAdventureRecordWidget>();
-  m_adventures.push_back(std::move(new_adventure));
+  // Add a new adventure record to the model manager
+  modAdventureRecord* record = m_model->add_new_adventure();
+  m_adventures.push_back(std::make_unique<vieAdventureRecordWidget>(record));
+  // Add the record to the list
   vieAdventureRecordWidget* adventure = m_adventures[m_adventures.size() - 1].get();
   QListWidgetItem* item = new QListWidgetItem();
   item->setSizeHint(adventure->sizeHint());

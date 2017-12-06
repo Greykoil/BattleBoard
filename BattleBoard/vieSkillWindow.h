@@ -21,6 +21,8 @@
 
 // types: classes, enums, typedefs
 class vwmSkillPage;
+class modSkillManager;
+class modCharacter;
 
 //=============================================================================
 class vieSkillWindow : public QDialog
@@ -31,12 +33,17 @@ public:
   
   vieSkillWindow(
     vwmSkillPage* manager,
+    modSkillManager* model,
+    modCharacter* character,
     QWidget *parent = Q_NULLPTR
   );
   // Constructor
 
   void redraw();
   // Redraw the list of available skills
+
+  void update_points();
+  // Update the available points
 
   vieSkillWindow(const vieSkillWindow&) = delete;
   // Deleted copy constructor.
@@ -52,6 +59,10 @@ private:
 
   vwmSkillPage* m_vm_manager;
   // The view model for the skill window
+
+  modSkillManager* m_model;
+
+  modCharacter* m_character_model;
 
   std::vector<std::unique_ptr<vieSkillWidget>> m_full_skill_list;
   // All the available skills

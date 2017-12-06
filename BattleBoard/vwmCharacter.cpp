@@ -21,8 +21,7 @@ vwmCharacter::vwmCharacter(
 //
 //-----------------------------------------------------------------------------
   : m_model_character(model_character),
-    m_skill_page_manager(model_character->get_skill_page_manager(), this),
-    m_adventure_record_manager(model_character->get_adventure_record_manager())
+    m_skill_page_manager(model_character->get_skill_page_manager(), this)
 {
   assert(model_character != nullptr);
 }
@@ -95,14 +94,4 @@ vwmSkillPage* vwmCharacter::get_skill_view_model()
 //-----------------------------------------------------------------------------
 {
   return &m_skill_page_manager;
-}
-
-//=============================================================================
-vwmAdventureRecordManager * vwmCharacter::get_adventure_record_view_model()
-//
-//D Return m_adventure_record_manger
-//
-//-----------------------------------------------------------------------------
-{
-  return nullptr;
 }

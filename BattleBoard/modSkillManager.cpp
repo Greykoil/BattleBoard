@@ -58,6 +58,20 @@ bool modSkillManager::create_skill_tree()
 }
 
 //=============================================================================
+int modSkillManager::total_points_spent()
+//
+//D Get the total number of points for the taken skills
+//
+//-----------------------------------------------------------------------------
+{
+  int total = 0;
+  for (auto& skill : m_skill_tree) {
+    total += skill->total_cost();
+  }
+  return total;
+}
+
+//=============================================================================
 int modSkillManager::num_skills() const
 //
 //D Get the number of available skills

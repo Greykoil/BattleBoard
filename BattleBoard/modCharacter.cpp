@@ -31,6 +31,16 @@ modCharacter::modCharacter(
 }
 
 //=============================================================================
+int modCharacter::get_available_points() const
+//
+//D Get the number of points a character has available to spend
+//
+//-----------------------------------------------------------------------------
+{
+  return m_adventure_record_manager.get_total_points();
+}
+
+//=============================================================================
 modSkillManager* modCharacter::get_skill_page_manager()
 //
 //D Return m_skill_manager

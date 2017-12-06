@@ -21,23 +21,37 @@ modAdventureRecordManager::modAdventureRecordManager()
 }
 
 //=============================================================================
-void modAdventureRecordManager::set_view_model(vwmAdventureRecordManager * view_model)
+void modAdventureRecordManager::set_view(vieAdventureRecordWindow* view)
 //
 //D
 //
 //-----------------------------------------------------------------------------
 {
-  assert(view_model != nullptr);
-  m_view_model = view_model;
+  assert(view != nullptr);
+  m_view = view;
 }
 
 //=============================================================================
-modAdventureRecordManager::~modAdventureRecordManager()
+modAdventureRecord* modAdventureRecordManager::add_new_adventure()
 //
-// <Full Description>
+//D Create a new adventure and add it to the list and return ptr to it
 //
 //-----------------------------------------------------------------------------
 {
-
+  m_adventures.push_back(std::make_unique<modAdventureRecord>());
+  return m_adventures[m_adventures.size() - 1].get();
 }
 
+//=============================================================================
+int modAdventureRecordManager::get_total_points() const
+//
+//D Get the total number of points available
+//
+//-----------------------------------------------------------------------------
+{
+  int total = 0;
+  for (auto& record : m_adventures) {
+    total += record->get_points();
+  }
+  return total;
+}

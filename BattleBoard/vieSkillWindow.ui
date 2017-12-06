@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1100</width>
-    <height>438</height>
+    <width>1162</width>
+    <height>548</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -153,6 +153,42 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>Points Available</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="pointsAvailable">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Points Spent</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="pointSpent">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>

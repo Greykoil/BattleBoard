@@ -8,6 +8,7 @@
 #include "vwmSkillPage.h"
 // includes from project
 #include "vieSkillWidget.h"
+#include "modCharacter.h"
 //includes from QT
 
 #include <assert.h>
@@ -15,6 +16,8 @@
 //=============================================================================
 vieSkillWindow::vieSkillWindow(
   vwmSkillPage* manager,
+  modSkillManager* model,
+  modCharacter* character,
   QWidget* parent
 )
 //
@@ -22,7 +25,9 @@ vieSkillWindow::vieSkillWindow(
 //
 //-----------------------------------------------------------------------------
   : QDialog(parent),
-    m_vm_manager(manager)
+    m_vm_manager(manager),
+    m_model(model),
+    m_character_model(character)
 {
   manager->set_view(this);
   m_ui.setupUi(this);
@@ -57,6 +62,13 @@ void vieSkillWindow::redraw()
 // 
 //-----------------------------------------------------------------------------
 {
+  // Update the available and spent points
+  int spent_points = m_model->total_points_spent();
+  int available_points = m_character_model->get_available_points();
+  
+  m_ui.pointsAvailable->setText(QString::number(available_points));
+  m_ui.pointSpent->setText(QString::number(spent_points));
+
   for (auto widget : m_all_skills) {
     widget.second->setHidden(!(widget.first->is_visable()));
   }
