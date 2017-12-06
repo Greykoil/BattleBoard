@@ -148,12 +148,6 @@
     <ClCompile Include="vieCharacterWindow.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
-    <ClCompile Include="vwmAdventureRecord.cpp">
-      <Filter>Source Files\ViewModel</Filter>
-    </ClCompile>
-    <ClCompile Include="vwmAdventureRecordManager.cpp">
-      <Filter>Source Files\ViewModel</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="MainWindow.qrc">
@@ -241,12 +235,6 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_vieCharacterWindow.h">
       <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vwmAdventureRecord.h">
-      <Filter>Header Files\ViewModel</Filter>
-    </ClInclude>
-    <ClInclude Include="vwmAdventureRecordManager.h">
-      <Filter>Header Files\ViewModel</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

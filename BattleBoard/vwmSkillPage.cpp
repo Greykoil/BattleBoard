@@ -5,11 +5,9 @@
 //-----------------------------------------------------------------------------
 // includes from our libraries
 #include "vwmSkillPage.h"
-#include "vwmSkill.h"
 #include "modSkillManager.h"
 #include "modSkill.h"
 #include "vieSkillWidget.h"
-#include "vwmSkill.h"
 #include "vieSkillWindow.h"
 #include "vwmCharacter.h"
 // system includes

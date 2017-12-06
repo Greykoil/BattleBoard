@@ -4,7 +4,6 @@
 //-----------------------------------------------------------------------------
 #pragma once
 // includes from our libraries
-#include "vwmAdventureRecordManager.h"
 #include "vwmSkillPage.h"
 // system includes
 
@@ -24,6 +23,7 @@ public:
   );
   // Constructor
   
+  modCharacter* get_character_model() { return m_model_character; }
 
   void update();
   // Update the display of stuff
@@ -46,7 +46,7 @@ public:
   vwmSkillPage* get_skill_view_model();
   // Return m_skill_page_manager
 
-  vwmAdventureRecordManager* get_adventure_record_view_model();
+//  vwmAdventureRecordManager* get_adventure_record_view_model();
   // Return m_adventure_record_manager
 
   vwmCharacter(const vwmCharacter&) = delete;
@@ -76,6 +76,6 @@ private:
 
   // Some classes for this to manage the lifetime of
   vwmSkillPage m_skill_page_manager;
-  vwmAdventureRecordManager m_adventure_record_manager;
+//  vwmAdventureRecordManager m_adventure_record_manager;
 
 };

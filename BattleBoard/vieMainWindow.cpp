@@ -12,6 +12,7 @@
 #include "vieAdventureRecordWindow.h"
 #include "vieSkillWindow.h"
 #include "vieCharacterWindow.h"
+#include "modCharacter.h"
 #include "vwmCharacter.h"
 // standard library includes
 #include <assert.h>
@@ -22,6 +23,7 @@
 //=============================================================================
 vieMainWindow::vieMainWindow(
   vwmCharacter* character_view_model, 
+  modCharacter* character_model,
   QWidget *parent
 )
 // 
@@ -30,6 +32,7 @@ vieMainWindow::vieMainWindow(
 //-----------------------------------------------------------------------------
 : QMainWindow(parent),
   m_view_model(character_view_model),
+  m_model(character_model),
   m_ui(),
   m_tab_list()
 {
@@ -49,8 +52,16 @@ void vieMainWindow::add_tabs()
 {
   // Add the tabs to storeage
   m_tab_list.push_back(std::make_unique<vieCharacterWindow>(m_view_model));
-  m_tab_list.push_back(std::make_unique<vieSkillWindow>(m_view_model->get_skill_view_model()));
-  m_tab_list.push_back(std::make_unique<vieAdventureRecordWindow>(m_view_model->get_adventure_record_view_model()));
+  
+  auto skill_window = std::make_unique<vieSkillWindow>(
+    m_view_model->get_skill_view_model(),
+    m_view_model->get_skill_view_model()->get_skill_model(),
+    m_view_model->get_character_model()
+    );
+
+  m_tab_list.push_back(std::move(skill_window));
+
+  m_tab_list.push_back(std::make_unique<vieAdventureRecordWindow>(m_model->get_adventure_record_manager()));
   
   // Add the tabs to the widget that displays them
   for (auto& window : m_tab_list) {

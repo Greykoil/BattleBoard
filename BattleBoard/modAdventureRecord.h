@@ -11,6 +11,8 @@
 // class predeclarations to avoid header file inclusion
 
 // types: classes, enums, typedefs
+class vieAdventureRecordWidget;
+
 namespace ADVENTURERECORD {
   enum LENGTH {
     ADVENTURE_WEEKEND,
@@ -34,6 +36,9 @@ public:
     ADVENTURERECORD::TYPE type = ADVENTURERECORD::TYPE::UNKNOWN
   );
   // Constructor
+
+  void set_view(vieAdventureRecordWidget* view);
+  // Set m_view
 
   void set_type(ADVENTURERECORD::TYPE type);
   // Set m_type
@@ -71,4 +76,6 @@ private:
   ADVENTURERECORD::TYPE m_type;
 
   int m_points;
+
+  vieAdventureRecordWidget* m_view;
 };

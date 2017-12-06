@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     &model_character
   );
   
-  vieMainWindow main_window(&view_model_character);
+  vieMainWindow main_window(&view_model_character, &model_character);
 
 
 

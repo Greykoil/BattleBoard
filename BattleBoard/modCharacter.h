@@ -42,6 +42,9 @@ public:
   );
   // Constructor
 
+  int get_available_points() const;
+  // Get the number of points the character has to spend
+
   modSkillManager* get_skill_page_manager();
   // Return m_skill_manager;
 

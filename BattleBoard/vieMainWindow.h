@@ -20,6 +20,7 @@
 // class predeclarations to avoid header file inclusion
 class vwmCharacter;
 class vieCharacterWindow;
+class modCharacter;
 // types: classes, enums, typedefs
 
 //=============================================================================
@@ -30,6 +31,7 @@ class vieMainWindow : public QMainWindow
 public:
   vieMainWindow(
     vwmCharacter* character_view_model,
+    modCharacter* character_model,
     QWidget *parent = Q_NULLPTR
   );
   // Constructor
@@ -60,6 +62,8 @@ private slots:
 private:
 
   vwmCharacter* m_view_model;
+
+  modCharacter* m_model;
 
   std::vector<std::unique_ptr<QDialog>> m_tab_list;
   // The vector of tabs that this window is going to show

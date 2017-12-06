@@ -6,12 +6,13 @@
 #pragma once
 // includes from our libraries
 #include "3rdPartyXml\tinyxml2.h"
+
+#include "modSkill.h"
 // system includes
 #include <vector>
 #include <memory>
 
 // class predeclarations to avoid header file inclusion
-class modSkill;
 class vwmSkillPage;
 // types: classes, enums, typedefs
 
@@ -24,6 +25,9 @@ public:
 
   bool create_skill_tree();
   // Create the skill tree 
+
+  int total_points_spent();
+  // Get the total number of points for the chosen skills
 
   int num_skills() const;
   // Return the number of total skills
