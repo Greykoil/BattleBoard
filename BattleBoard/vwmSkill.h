@@ -44,6 +44,9 @@ public:
   int total_cost(); 
   // The total cost for the num picks of the skill
 
+  int cost_per_rank();
+  // The cost for each rank of a skill
+
   std::string name();
   // Return m_name
 

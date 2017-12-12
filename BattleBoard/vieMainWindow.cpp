@@ -12,6 +12,7 @@
 #include "vieAdventureRecordWindow.h"
 #include "vieSkillWindow.h"
 #include "vieCharacterWindow.h"
+#include "vieCharacterDetailsWindow.h"
 #include "modCharacter.h"
 #include "vwmCharacter.h"
 // standard library includes
@@ -65,6 +66,11 @@ void vieMainWindow::add_tabs()
     )
   );
   
+  m_tab_list.push_back(
+    std::make_unique<vieCharacterDetailsWindow>(
+      m_model->get_character_details()
+    )
+  );
   // Add the tabs to the widget that displays them
   for (auto& window : m_tab_list) {
     m_ui.tabWidget->addTab(window.get(), window.get()->windowTitle());

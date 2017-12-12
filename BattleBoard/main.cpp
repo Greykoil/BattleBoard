@@ -8,10 +8,7 @@ int main(int argc, char *argv[])
   QApplication a(argc, argv);
 
 
-  modCharacter model_character(
-    CHARACTER::RACE::ELF,
-    CHARACTER::CLASS::MAGE
-  );
+  modCharacter model_character;
 
 
   vwmCharacter view_model_character(

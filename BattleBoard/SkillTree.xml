@@ -1,17 +1,47 @@
 ﻿<Root>
   <!-- This is an xml file that lists all of the skills that a player can purchase, 
   their costs and other information that they need-->
-  <Skill Name="Life" Cost="3" MaxPicks="150"/>
-  <Skill Name="Mana" Cost="1" MaxPicks="500"/>
-  <Skill Name="Power" Cost="4" MaxPicks="200"/>
-  <Skill Name="Mnemonic" Cost="50" MaxPicks="1"/>
-  <Skill Name="Meditate" Cost="100" MaxPicks="1"/>
-  <Skill Name="Mnemonic Master" Cost="500" MaxPicks="1">
+  <Skill Name="Life" MaxPicks="150">
+	<HumanCost Warrior="2" Scout="4" Acolyte="1" Mage="3"/>
+	<ElfCost Warrior="6" Scout="8" Acolyte="5" Mage="7"/>
+	<HalfOrcCost Warrior="10" Scout="12" Acolyte="9" Mage="11" />
+  </Skill>
+  <Skill Name="Mana" MaxPicks="500">
+	<HumanCost Warrior="2" Scout="4" Acolyte="1" Mage="3"/>
+	<ElfCost Warrior="6" Scout="8" Acolyte="5" Mage="7"/>
+	<HalfOrcCost Warrior="10" Scout="12" Acolyte="9" Mage="11" />
+  </Skill>
+  <Skill Name="Power" MaxPicks="200">
+	<HumanCost Warrior="2" Scout="4" Acolyte="1" Mage="3"/>
+	<ElfCost Warrior="6" Scout="8" Acolyte="5" Mage="7"/>
+	<HalfOrcCost Warrior="10" Scout="12" Acolyte="9" Mage="11" />
+  </Skill>
+  <Skill Name="Mnemonic" MaxPicks="1">
+	<HumanCost Warrior="2" Scout="4" Acolyte="1" Mage="3"/>
+	<ElfCost Warrior="6" Scout="8" Acolyte="5" Mage="7"/>
+	<HalfOrcCost Warrior="10" Scout="12" Acolyte="9" Mage="11" />
+  </Skill>
+  <Skill Name="Meditate" MaxPicks="1">
+	<HumanCost Warrior="2" Scout="4" Acolyte="1" Mage="3"/>
+	<ElfCost Warrior="6" Scout="8" Acolyte="5" Mage="7"/>
+	<HalfOrcCost Warrior="10" Scout="12" Acolyte="9" Mage="11" />
+  </Skill>
+  <Skill Name="Mnemonic Master" MaxPicks="1">
+	<HumanCost Warrior="2" Scout="4" Acolyte="1" Mage="3"/>
+	<ElfCost Warrior="6" Scout="8" Acolyte="5" Mage="7"/>
+	<HalfOrcCost Warrior="10" Scout="12" Acolyte="9" Mage="11" />
     <Prerequisite>Mnemonic</Prerequisite>
   </Skill>
-  <Skill Name="Mnemoic Enhanced Master" Cost="1000" MaxPicks="1">
+  <Skill Name="Mnemoic Enhanced Master" MaxPicks="1">
+	<HumanCost Warrior="2" Scout="4" Acolyte="1" Mage="3"/>
+	<ElfCost Warrior="6" Scout="8" Acolyte="5" Mage="7"/>
+	<HalfOrcCost Warrior="10" Scout="12" Acolyte="9" Mage="11" />
     <Prerequisite>Mnemonic Master</Prerequisite>
     <Prerequisite>Meditate</Prerequisite>
   </Skill>
-  <Skill Name="Something New" Cost="9890" MaxPicks="7"/>
+  <Skill Name="Something New" MaxPicks="7">
+	<HumanCost Warrior="2" Scout="4" Acolyte="1" Mage="3"/>
+	<ElfCost Warrior="6" Scout="8" Acolyte="5" Mage="7"/>
+	<HalfOrcCost Warrior="10" Scout="12" Acolyte="9" Mage="11" />
+  </Skill>
 </Root>

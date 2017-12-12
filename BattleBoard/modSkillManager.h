@@ -14,13 +14,14 @@
 
 // class predeclarations to avoid header file inclusion
 class vwmSkillPage;
+class modCharacterDetails;
 // types: classes, enums, typedefs
 
 //=============================================================================
 class modSkillManager : public modState {
 public:
 
-  modSkillManager();
+  modSkillManager(modCharacterDetails* character_details);
   // Constructor
 
   void set_view_model(vwmSkillPage* view_model);
@@ -45,6 +46,10 @@ public:
   modSkill* skill(int num);
   // return the n'th skill
 
+  modCharacterDetails* get_character_details();
+  // Get the current character details
+
+
   modSkillManager(const modSkillManager&) = delete;
   // Deleted copy constructor.
 
@@ -60,6 +65,12 @@ protected:
   bool skill_from_xml(tinyxml2::XMLElement* node);
   // Create a skill from the xml node
 
+  std::unique_ptr<modSkillCost> read_costs(tinyxml2::XMLElement* node);
+  // Read the costs from the node
+
+  std::unique_ptr<modRaceCost> cost_for_race(tinyxml2::XMLElement* node);
+  // Get the costs associated with a given race
+
   // variables
 
 private:
@@ -70,5 +81,7 @@ private:
   std::vector<std::unique_ptr<modSkill>> m_skill_tree;
 
   vwmSkillPage* m_view_model;
+
+  modCharacterDetails* m_character_details;
 
 };

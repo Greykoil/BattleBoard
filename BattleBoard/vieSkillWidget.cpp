@@ -92,5 +92,6 @@ void vieSkillWidget::update_after_load()
 {
   m_ui.numberBoughtEdit->setText(QString::number(m_view_model->num_picks()));
   m_ui.totalCostLabel->setText(QString::number(m_view_model->total_cost()));
+  m_ui.costLabel->setText(QString::number(m_view_model->cost_per_rank()));
 }
 

@@ -13,7 +13,7 @@
 //=============================================================================
 modSkill::modSkill(
   std::string a_name,
-  int a_cost,
+  std::unique_ptr<modSkillCost> cost_manager,
   int a_max_picks,
   bool a_status,
   std::vector<modSkill*> prerequisites
@@ -24,7 +24,7 @@ modSkill::modSkill(
 //
 //-----------------------------------------------------------------------------
   : m_name(a_name),
-    m_cost(a_cost),
+    m_cost_manager(std::move(cost_manager)),
     m_max_picks(a_max_picks),
     m_num_picks(0),
     m_prerequisite_skills(prerequisites),
@@ -125,7 +125,7 @@ int modSkill::cost_per_rank() const
 //
 //-----------------------------------------------------------------------------
 {
-  return m_cost;
+  return m_cost_manager->cost_for_details();
 }
 
 //=============================================================================
@@ -180,5 +180,5 @@ int modSkill::total_cost() const
 //
 //-----------------------------------------------------------------------------
 {
-  return m_num_picks * m_cost;
+  return m_num_picks * cost_per_rank();
 }
