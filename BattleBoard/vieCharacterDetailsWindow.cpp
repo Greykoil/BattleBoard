@@ -66,12 +66,38 @@ void vieCharacterDetailsWindow::actionCharacterClassChanged(QString character_cl
     model_class = ACOLYTE;
   } else if (character_class == "Mage") {
     model_class = MAGE;
-  }
-  else if (character_class == "Warrior") {
+  } else if (character_class == "Warrior") {
     model_class = WARRIOR;
-  }
-  else if (character_class == "Scout") {
+  } else if (character_class == "Scout") {
     model_class = SCOUT;
   }
   m_model->set_character_class(model_class);
+}
+
+//=============================================================================
+void vieCharacterDetailsWindow::actionCharacterAlignmentChanged(QString alignment)
+//
+//-----------------------------------------------------------------------------
+{
+  CHARACTER_ALIGNMENT character_alignment = NEUTRAL;
+  if (alignment == "Good") {
+    alignment = GOOD;
+  } else if (alignment == "Neutral") {
+    alignment = NEUTRAL;
+  } else if (alignment == "Evil") {
+    alignment = EVIL;
+  } else {
+    // Unknown alignment somehow
+    assert(1 == 0);
+  }
+  m_model->set_character_alignment(character_alignment);
+}
+
+//=============================================================================
+void vieCharacterDetailsWindow::actionCharacterGuildChanged(QString guild)
+//
+//-----------------------------------------------------------------------------
+{
+  CHARACTER_GUILD character_guild = EnumConverter::string_to_guild(guild.toStdString());
+  m_model->set_character_guild(character_guild);
 }

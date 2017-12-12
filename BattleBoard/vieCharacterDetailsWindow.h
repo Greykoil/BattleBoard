@@ -6,7 +6,7 @@
 //-----------------------------------------------------------------------------
 #pragma once
 // includes from project
-
+#include "modCharacterDetailsEnum.h"
 // QT ui include
 #include "ui_vieCharacterDetailsWindow.h"
 
@@ -41,6 +41,8 @@ public:
   ~vieCharacterDetailsWindow() = default;
   // Default destructor
 
+protected:
+  
 private slots:
 
   void actionCharacterNameChanged(QString name);
@@ -51,6 +53,12 @@ private slots:
 
   void actionCharacterClassChanged(QString character_class);
   // Called when the user changes the character class
+
+  void actionCharacterAlignmentChanged(QString alignment);
+  // Called when the user changes the characters alignment
+
+  void actionCharacterGuildChanged(QString guild);
+  // Called when the user changes the characters guild
 
 private:
 

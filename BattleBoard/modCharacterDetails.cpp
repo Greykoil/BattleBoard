@@ -14,9 +14,27 @@ modCharacterDetails::modCharacterDetails()
 //-----------------------------------------------------------------------------
 : m_character_class(WARRIOR),
   m_character_race(HUMAN),
-  m_character_name("")
+  m_character_name(""),
+  m_character_alignment(NEUTRAL),
+  m_character_guild(OTHER)
 {
 
+}
+
+//=============================================================================
+void modCharacterDetails::set_character_alignment(CHARACTER_ALIGNMENT alignment)
+//
+//-----------------------------------------------------------------------------
+{
+  m_character_alignment = alignment;
+}
+
+//=============================================================================
+void modCharacterDetails::set_character_guild(CHARACTER_GUILD guild)
+//
+//-----------------------------------------------------------------------------
+{
+  m_character_guild = guild;
 }
 
 //=============================================================================

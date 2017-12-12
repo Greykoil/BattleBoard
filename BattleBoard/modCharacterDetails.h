@@ -20,6 +20,12 @@ public:
   modCharacterDetails();
   // Constructor
 
+  void set_character_alignment(CHARACTER_ALIGNMENT);
+  // Set m_character alignment
+
+  void set_character_guild(CHARACTER_GUILD);
+  // Set m_character guild
+
   void set_character_name(std::string name);
   // Set m_character_name
 
@@ -63,6 +69,10 @@ private:
   CHARACTER_RACE m_character_race;
   
   CHARACTER_CLASS m_character_class;
+
+  CHARACTER_GUILD m_character_guild;
+
+  CHARACTER_ALIGNMENT m_character_alignment;
   
   std::string m_character_name;
 };
