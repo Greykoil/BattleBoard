@@ -59,6 +59,12 @@
     <Filter Include="Source Files\ViewModel">
       <UniqueIdentifier>{210d94e7-8a99-4c49-aea3-d08555eef744}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\BBWidgets">
+      <UniqueIdentifier>{58df6f21-71a5-4076-bc34-e1fcb53434e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\BBWidgets">
+      <UniqueIdentifier>{9326a69b-c129-4156-b029-e31367f93a0c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -178,8 +184,53 @@
     <ClCompile Include="GeneratedFiles\Release\moc_vieBBLifeWidget.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vieBBPowerWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vieBBPowerWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vieBBSkillsWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vieBBSkillsWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vieBBMagicWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vieBBMagicWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vieEquipmentWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vieEquipmentWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vieBBLineWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vieBBLineWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
     <ClCompile Include="vieBBLifeWidget.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\BBWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="vieBBLineWidget.cpp">
+      <Filter>Source Files\BBWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="vieBBMagicWidget.cpp">
+      <Filter>Source Files\BBWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="vieBBPowerWidget.cpp">
+      <Filter>Source Files\BBWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="vieBBSkillsWidget.cpp">
+      <Filter>Source Files\BBWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="vieEquipmentWidget.cpp">
+      <Filter>Source Files\BBWidgets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -231,11 +282,41 @@
     <CustomBuild Include="vieCharacterDetailsWindow.h">
       <Filter>Header Files\View</Filter>
     </CustomBuild>
-    <CustomBuild Include="vieBBLifeWidget.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="vieBBLifeWidget.ui">
       <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBPowerWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBSkillsWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBMagicWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieEquipmentWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBLineWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBLifeWidget.h">
+      <Filter>Header Files\BBWidgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBLineWidget.h">
+      <Filter>Header Files\BBWidgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBMagicWidget.h">
+      <Filter>Header Files\BBWidgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBPowerWidget.h">
+      <Filter>Header Files\BBWidgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBSkillsWidget.h">
+      <Filter>Header Files\BBWidgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieEquipmentWidget.h">
+      <Filter>Header Files\BBWidgets</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -306,6 +387,21 @@
       <Filter>Header Files\Model</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_vieBBLifeWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieBBPowerWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieBBSkillsWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieBBMagicWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieEquipmentWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieBBLineWidget.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>

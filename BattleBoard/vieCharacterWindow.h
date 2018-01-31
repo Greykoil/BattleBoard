@@ -6,6 +6,10 @@
 //-----------------------------------------------------------------------------
 #pragma once
 // includes from project
+#include "vieBBLifeWidget.h"
+#include "vieBBPowerWidget.h"
+#include "vieBBMagicWidget.h"
+#include "vieEquipmentWidget.h"
 
 // QT ui include
 #include "ui_vieCharacterWindow.h"
@@ -48,7 +52,14 @@ public:
 
 
 private:
-    Ui::vieCharacter m_ui;
+  Ui::vieCharacter m_ui;
 
-    vwmCharacter* m_view_model;
+  vwmCharacter* m_view_model;
+
+  vieBBPowerWidget m_power_widget;
+
+  vieBBMagicWidget m_magic_widget;
+  vieBBLifeWidget m_life_widget;
+  vieEquipmentWidget m_equipment_widget;
+
 };

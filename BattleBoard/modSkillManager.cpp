@@ -135,6 +135,20 @@ modSkill* modSkillManager::skill(int num)
 }
 
 //=============================================================================
+int modSkillManager::life() const
+//
+//-----------------------------------------------------------------------------
+{
+  for (auto& skill : m_skill_tree) {
+    if (skill->name() == "Life") {
+      return skill->num_picks() + 42;
+    }
+
+  }
+  return 0;
+}
+
+//=============================================================================
 bool modSkillManager::skill_from_xml(tinyxml2::XMLElement* node)
 //
 //D Build an instance of a skill from the corresponding xml node

@@ -49,6 +49,8 @@ public:
   modCharacterDetails* get_character_details();
   // Get the current character details
 
+  int life() const;
+  // Return the characters available life
 
   modSkillManager(const modSkillManager&) = delete;
   // Deleted copy constructor.
