@@ -6,6 +6,10 @@
 //-----------------------------------------------------------------------------
 #pragma once
 // includes from project
+#include "vieBBLifeWidget.h"
+#include "vieBBPowerWidget.h"
+#include "vieBBMagicWidget.h"
+#include "vieEquipmentWidget.h"
 
 // QT ui include
 #include "ui_vieCharacterWindow.h"
@@ -18,7 +22,7 @@
 // class predeclarations to avoid header file inclusion
 
 // types: classes, enums, typedefs
-class vwmCharacter;
+class modCharacter;
 
 //=============================================================================
 class vieCharacterWindow : public QDialog
@@ -28,7 +32,7 @@ class vieCharacterWindow : public QDialog
 public:
   
   vieCharacterWindow(
-    vwmCharacter* view_model,
+    modCharacter* model,
     QWidget *parent = Q_NULLPTR
   );
   // Constructor
@@ -48,7 +52,14 @@ public:
 
 
 private:
-    Ui::vieCharacter m_ui;
+  Ui::vieCharacter m_ui;
 
-    vwmCharacter* m_view_model;
+  modCharacter* m_view_model;
+
+  vieBBPowerWidget m_power_widget;
+
+  vieBBMagicWidget m_magic_widget;
+  vieBBLifeWidget m_life_widget;
+  vieEquipmentWidget m_equipment_widget;
+
 };

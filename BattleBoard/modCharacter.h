@@ -9,36 +9,20 @@
 #include "modState.h"
 #include "modSkillManager.h"
 #include "modAdventureRecordManager.h"
+#include "modCharacterDetails.h"
 // system includes
 
 // class predeclarations to avoid header file inclusion
 class vwmCharacter;
 class vwmAdventureRecordManager;
-class vwmSkillPage;
 
 // types: classes, enums, typedefs
-namespace CHARACTER {
-  enum RACE {
-    HUMAN,
-    HALF_ORC,
-    ELF
-  };
-  enum CLASS {
-    WARRIOR,
-    MAGE,
-    PRIEST,
-    SCOUT
-  };
-};
 
 //=============================================================================
 class modCharacter : public modState {
 public:
 
-  modCharacter(
-    CHARACTER::RACE race,
-    CHARACTER::CLASS char_class
-  );
+  modCharacter();
   // Constructor
 
   int get_available_points() const;
@@ -49,6 +33,13 @@ public:
 
   modAdventureRecordManager* get_adventure_record_manager();
   // Return m_adventure_record_manger
+
+  modCharacterDetails* get_character_details();
+  // Return m_character_details
+
+  modMagicManager* get_magic_manager();
+
+  modPowerManager* get_power_manager();
 
   void read_state(std::string file_name);
   // read the xml file and turn it into a character state
@@ -81,12 +72,11 @@ private:
   // friends
   // functions
   // variables
+  modCharacterDetails m_character_details;
+
   modSkillManager m_skill_manager;
 
   modAdventureRecordManager m_adventure_record_manager;
 
-  CHARACTER::RACE m_race;
-
-  CHARACTER::CLASS m_class;
 
 };

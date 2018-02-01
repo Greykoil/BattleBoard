@@ -6,7 +6,6 @@
 //-----------------------------------------------------------------------------
 #pragma once
 // includes from project
-#include "vwmSkillPage.h"
 // QT ui include
 #include "ui_vieSkillWindow.h"
 
@@ -20,9 +19,10 @@
 // class predeclarations to avoid header file inclusion
 
 // types: classes, enums, typedefs
-class vwmSkillPage;
+class vieSkillPage;
 class modSkillManager;
 class modCharacter;
+class vieSkillWidget;
 
 //=============================================================================
 class vieSkillWindow : public QDialog
@@ -32,7 +32,6 @@ class vieSkillWindow : public QDialog
 public:
   
   vieSkillWindow(
-    vwmSkillPage* manager,
     modSkillManager* model,
     modCharacter* character,
     QWidget *parent = Q_NULLPTR
@@ -53,9 +52,6 @@ public:
 
 
 private:
-
-  vwmSkillPage* m_vm_manager;
-  // The view model for the skill window
 
   modSkillManager* m_model;
 

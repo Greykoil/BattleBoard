@@ -8,22 +8,25 @@
 
 #include "modSkill.h"
 #include "modState.h"
+#include "modMagicManager.h"
+#include "modPowerManager.h"
 // system includes
 #include <vector>
 #include <memory>
 
 // class predeclarations to avoid header file inclusion
-class vwmSkillPage;
+class modCharacterDetails;
+class vieSkillWindow;
 // types: classes, enums, typedefs
 
 //=============================================================================
 class modSkillManager : public modState {
 public:
 
-  modSkillManager();
+  modSkillManager(modCharacterDetails* character_details);
   // Constructor
 
-  void set_view_model(vwmSkillPage* view_model);
+  void set_view(vieSkillWindow* view_model);
 
   virtual tinyxml2::XMLElement* convert_to_xml(
     tinyxml2::XMLDocument* parent
@@ -45,6 +48,16 @@ public:
   modSkill* skill(int num);
   // return the n'th skill
 
+  modCharacterDetails* get_character_details();
+  // Get the current character details
+
+  modMagicManager* get_magic_manager();
+
+  modPowerManager* get_power_manager();
+
+  int life();
+  // Return the characters available life
+
   modSkillManager(const modSkillManager&) = delete;
   // Deleted copy constructor.
 
@@ -60,6 +73,21 @@ protected:
   bool skill_from_xml(tinyxml2::XMLElement* node);
   // Create a skill from the xml node
 
+  std::unique_ptr<modSkillCost> read_costs(tinyxml2::XMLElement* node);
+  // Read the costs from the node
+
+  std::unique_ptr<modRaceCost> cost_for_race(tinyxml2::XMLElement* node);
+  // Get the costs associated with a given race
+
+  void set_up_magic();
+  // Set up the magic manager once the skill tree has been sorted.
+
+  void set_up_power();
+  // Set up the power manager once the skill tree has been sorted.
+
+  modSkill* find_skill_by_name(std::string name);
+  // Find the skill with the corresponding name
+
   // variables
 
 private:
@@ -69,6 +97,11 @@ private:
   // variables
   std::vector<std::unique_ptr<modSkill>> m_skill_tree;
 
-  vwmSkillPage* m_view_model;
+  vieSkillWindow* m_view;
 
+  modCharacterDetails* m_character_details;
+
+  modMagicManager m_magic_manager;
+
+  modPowerManager m_power_manager;
 };

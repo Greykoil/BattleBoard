@@ -5,7 +5,6 @@
 
 // Class header include
 #include "vieSkillWindow.h"
-#include "vwmSkillPage.h"
 // includes from project
 #include "vieSkillWidget.h"
 #include "modCharacter.h"
@@ -15,7 +14,6 @@
 
 //=============================================================================
 vieSkillWindow::vieSkillWindow(
-  vwmSkillPage* manager,
   modSkillManager* model,
   modCharacter* character,
   QWidget* parent
@@ -23,15 +21,15 @@ vieSkillWindow::vieSkillWindow(
 //
 //-----------------------------------------------------------------------------
   : QDialog(parent),
-    m_vm_manager(manager),
     m_model(model),
     m_character_model(character)
 {
-  manager->set_view(this);
   m_ui.setupUi(this);
 
   // Get a list of the visable skills
-  m_vm_manager->full_skill_list(m_full_skill_list);
+  for (int i = 0; i < m_model->num_skills(); ++i) {
+    m_full_skill_list.push_back(std::make_unique<vieSkillWidget>(m_model->skill(i), this));
+  }
   
   // Here is a list of skills to display
   for (std::unique_ptr<vieSkillWidget>& skill : m_full_skill_list) {

@@ -1,17 +1,86 @@
 ﻿<Root>
   <!-- This is an xml file that lists all of the skills that a player can purchase, 
   their costs and other information that they need-->
-  <Skill Name="Life" Cost="3" MaxPicks="150"/>
-  <Skill Name="Mana" Cost="1" MaxPicks="500"/>
-  <Skill Name="Power" Cost="4" MaxPicks="200"/>
-  <Skill Name="Mnemonic" Cost="50" MaxPicks="1"/>
-  <Skill Name="Meditate" Cost="100" MaxPicks="1"/>
-  <Skill Name="Mnemonic Master" Cost="500" MaxPicks="1">
-    <Prerequisite>Mnemonic</Prerequisite>
-  </Skill>
-  <Skill Name="Mnemoic Enhanced Master" Cost="1000" MaxPicks="1">
-    <Prerequisite>Mnemonic Master</Prerequisite>
-    <Prerequisite>Meditate</Prerequisite>
-  </Skill>
-  <Skill Name="Something New" Cost="9890" MaxPicks="7"/>
+  <Skill Name="Two Handed Weapon Proficiency" MaxPicks="1">
+  <HumanCost Warrior="9" Scout="18" Acolyte="18" Mage="27"/>
+  <ElfCost Warrior="10" Scout="20" Acolyte="20" Mage="30"/>
+  <HalfOrcCost Warrior="8" Scout="16" Acolyte="24" Mage="16"/>
+</Skill>
+<Skill Name="Buy 3 Points of Life" MaxPicks="1">
+  <HumanCost Warrior="3" Scout="6" Acolyte="6" Mage="9"/>
+  <ElfCost Warrior="5" Scout="7" Acolyte="9" Mage="11"/>
+  <HalfOrcCost Warrior="3" Scout="5" Acolyte="4" Mage="6"/>
+</Skill>
+<Skill Name="Strength" MaxPicks="1">
+  <HumanCost Warrior="30" Scout="60" Acolyte="60" Mage="90"/>
+  <ElfCost Warrior="60" Scout="90" Acolyte="90" Mage="120"/>
+  <HalfOrcCost Warrior="25" Scout="50" Acolyte="50" Mage="75"/>
+</Skill>
+<Skill Name="Recognise Magic" MaxPicks="1">
+  <HumanCost Warrior="6" Scout="4" Acolyte="4" Mage="2"/>
+  <ElfCost Warrior="3" Scout="2" Acolyte="2" Mage="1"/>
+  <HalfOrcCost Warrior="9" Scout="6" Acolyte="6" Mage="3"/>
+</Skill>
+<Skill Name="Buy Level 1 Spell Slot" MaxPicks="1">
+  <HumanCost Warrior="3" Scout="2" Acolyte="2" Mage="1"/>
+  <ElfCost Warrior="2" Scout="2" Acolyte="2" Mage="1"/>
+  <HalfOrcCost Warrior="6" Scout="4" Acolyte="4" Mage="2"/>
+</Skill>
+<Skill Name="Buy Level 2 Spell Slot" MaxPicks="1">
+  <HumanCost Warrior="6" Scout="4" Acolyte="4" Mage="2"/>
+  <ElfCost Warrior="2" Scout="2" Acolyte="2" Mage="1"/>
+  <HalfOrcCost Warrior="9" Scout="6" Acolyte="6" Mage="3"/>
+</Skill>
+<Skill Name="Buy Level 3 Spell Slot" MaxPicks="1">
+  <HumanCost Warrior="9" Scout="6" Acolyte="6" Mage="3"/>
+  <ElfCost Warrior="4" Scout="4" Acolyte="4" Mage="2"/>
+  <HalfOrcCost Warrior="12" Scout="8" Acolyte="8" Mage="4"/>
+</Skill>
+<Skill Name="Buy Level 4 Spell Slot" MaxPicks="1">
+  <HumanCost Warrior="12" Scout="8" Acolyte="8" Mage="4"/>
+  <ElfCost Warrior="6" Scout="6" Acolyte="6" Mage="3"/>
+  <HalfOrcCost Warrior="15" Scout="10" Acolyte="10" Mage="5"/>
+</Skill>
+<Skill Name="Buy Level 5 Spell Slot" MaxPicks="1">
+  <HumanCost Warrior="15" Scout="10" Acolyte="10" Mage="5"/>
+  <ElfCost Warrior="8" Scout="8" Acolyte="8" Mage="4"/>
+  <HalfOrcCost Warrior="18" Scout="12" Acolyte="12" Mage="6"/>
+</Skill>
+<Skill Name="Mnemonic" MaxPicks="1">
+  <HumanCost Warrior="8" Scout="8" Acolyte="8" Mage="4"/>
+  <ElfCost Warrior="6" Scout="6" Acolyte="6" Mage="3"/>
+  <HalfOrcCost Warrior="10" Scout="10" Acolyte="10" Mage="5"/>
+</Skill>
+<Skill Name="Recognise Power" MaxPicks="1">
+  <HumanCost Warrior="5" Scout="3" Acolyte="1" Mage="3"/>
+  <ElfCost Warrior="12" Scout="6" Acolyte="3" Mage="6"/>
+  <HalfOrcCost Warrior="6" Scout="4" Acolyte="2" Mage="4"/>
+</Skill>
+<Skill Name="Buy 1 Point of Power" MaxPicks="1">
+  <HumanCost Warrior="3" Scout="2" Acolyte="1" Mage="2"/>
+  <ElfCost Warrior="6" Scout="4" Acolyte="2" Mage="4"/>
+  <HalfOrcCost Warrior="5" Scout="3" Acolyte="1" Mage="3"/>
+</Skill>
+<Skill Name="Meditate" MaxPicks="1">
+  <HumanCost Warrior="12" Scout="8" Acolyte="4" Mage="8"/>
+  <ElfCost Warrior="12" Scout="8" Acolyte="4" Mage="8"/>
+  <HalfOrcCost Warrior="15" Scout="10" Acolyte="5" Mage="10"/>
+</Skill>
+<Skill Name="Connection with 1st Sphere" MaxPicks="1">
+  <HumanCost Warrior="16" Scout="8" Acolyte="4" Mage="8"/>
+  <ElfCost Warrior="20" Scout="12" Acolyte="6" Mage="12"/>
+  <HalfOrcCost Warrior="20" Scout="10" Acolyte="5" Mage="10"/>
+</Skill>
+<Skill Name="Read and Write Runes" MaxPicks="1">
+  <HumanCost Warrior="4" Scout="2" Acolyte="2" Mage="2"/>
+  <ElfCost Warrior="4" Scout="2" Acolyte="2" Mage="2"/>
+  <HalfOrcCost Warrior="4" Scout="2" Acolyte="2" Mage="2"/>
+</Skill>
+<Skill Name="Armour Proficiency" MaxPicks="1">
+  <HumanCost Warrior="10" Scout="14" Acolyte="14" Mage="18"/>
+  <ElfCost Warrior="14" Scout="20" Acolyte="20" Mage="26"/>
+  <HalfOrcCost Warrior="12" Scout="18" Acolyte="18" Mage="24"/>
+</Skill>
+
+  
 </Root>

@@ -13,16 +13,13 @@
 #include <assert.h>
 
 //=============================================================================
-modCharacter::modCharacter(
-  CHARACTER::RACE race,
-  CHARACTER::CLASS char_class
-)
+modCharacter::modCharacter()
 //
 //-----------------------------------------------------------------------------
-  : m_race(race),
-    m_class(char_class),
-    m_skill_manager(),
+  : m_character_details(),
+    m_skill_manager(&m_character_details),
     m_adventure_record_manager()
+    
 {
   m_skill_manager.create_skill_tree();
 }
@@ -51,6 +48,32 @@ modAdventureRecordManager* modCharacter::get_adventure_record_manager()
 //-----------------------------------------------------------------------------
 {
   return &m_adventure_record_manager;
+}
+
+//=============================================================================
+modCharacterDetails * modCharacter::get_character_details()
+//
+//-----------------------------------------------------------------------------
+{
+  return &m_character_details;
+}
+
+//=============================================================================
+modMagicManager * modCharacter::get_magic_manager()
+//
+//D
+//
+//-----------------------------------------------------------------------------
+{
+  return m_skill_manager.get_magic_manager();
+}
+
+//=============================================================================
+modPowerManager * modCharacter::get_power_manager()
+//
+//-----------------------------------------------------------------------------
+{
+  return m_skill_manager.get_power_manager();
 }
 
 //=============================================================================

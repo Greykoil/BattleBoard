@@ -6,10 +6,10 @@
 
 // Class header include 
 #include "modSkillManager.h"
-#include "vwmSkillPage.h"
 
 // includes from our libraries
 #include "modSkill.h"
+#include "vieSkillWindow.h"
 // system includes
 #include <memory>
 #include <assert.h>
@@ -22,22 +22,23 @@
 using namespace tinyxml2;
 
 //=============================================================================
-modSkillManager::modSkillManager()
+modSkillManager::modSkillManager(modCharacterDetails* character_details)
 //
 //-----------------------------------------------------------------------------
   : m_skill_tree(),
-    m_view_model(nullptr)
+    m_view(nullptr),
+    m_character_details(character_details)
 {
-
+  assert(character_details != nullptr);
 }
 
 //=============================================================================
-void modSkillManager::set_view_model(vwmSkillPage * view_model)
+void modSkillManager::set_view(vieSkillWindow* view_model)
 //
 //-----------------------------------------------------------------------------
 {
   assert(view_model != nullptr);
-  m_view_model = view_model;
+  m_view = view_model;
 }
 
 //=============================================================================
@@ -77,7 +78,7 @@ void modSkillManager::load_from_xml(tinyxml2::XMLElement* element)
     }
     child_element = child_element->NextSiblingElement("Skill");
   }
-  m_view_model->update_displayed_skills();
+//  m_view->redraw();
 }
 
 //=============================================================================
@@ -100,6 +101,8 @@ bool modSkillManager::create_skill_tree()
     skill = skill->NextSiblingElement("Skill");
   }
 
+  set_up_magic();
+  set_up_power();
   return true;
 }
 
@@ -134,6 +137,32 @@ modSkill* modSkillManager::skill(int num)
 }
 
 //=============================================================================
+modMagicManager* modSkillManager::get_magic_manager()
+//
+//-----------------------------------------------------------------------------
+{
+  return &m_magic_manager;
+}
+
+//=============================================================================
+modPowerManager * modSkillManager::get_power_manager()
+//
+//-----------------------------------------------------------------------------
+{
+  return &m_power_manager;
+}
+
+//=============================================================================
+int modSkillManager::life()
+//
+//-----------------------------------------------------------------------------
+{
+  modSkill* life = find_skill_by_name("Buy 3 Points of Life");
+
+  return ((life->num_picks() * 3) + 42);
+}
+
+//=============================================================================
 bool modSkillManager::skill_from_xml(tinyxml2::XMLElement* node)
 //
 //D Build an instance of a skill from the corresponding xml node
@@ -141,15 +170,16 @@ bool modSkillManager::skill_from_xml(tinyxml2::XMLElement* node)
 //-----------------------------------------------------------------------------
 {
   std::string name = node->Attribute("Name");
-  int cost;
-  XMLError out = node->QueryIntAttribute("Cost", &cost);
-  XMLCheckResult(out);
+  
+
+
   int max_picks;
-  out = node->QueryIntAttribute("MaxPicks", &max_picks);
+  XMLError out = node->QueryIntAttribute("MaxPicks", &max_picks);
   XMLCheckResult(out);
 
   std::vector<modSkill*> pre_reqs;
 
+  std::unique_ptr<modSkillCost> costs = read_costs(node);
 
   XMLElement* skill = node->FirstChildElement("Prerequisite");
   while (skill != nullptr) {
@@ -167,12 +197,100 @@ bool modSkillManager::skill_from_xml(tinyxml2::XMLElement* node)
 
   m_skill_tree.push_back(std::make_unique<modSkill>(
     name, 
-    cost, 
+    std::move(costs), 
     max_picks, 
     is_status, 
     pre_reqs
   ));
 
   return true;
+}
+
+//=============================================================================
+std::unique_ptr<modSkillCost> modSkillManager::read_costs(XMLElement* node)
+//
+//D Costs are in sub nodes for each race and class
+//
+//-----------------------------------------------------------------------------
+{
+
+  // Read the costs of skills for the various race/class combos
+  XMLElement* human= node->FirstChildElement("HumanCost");
+  XMLElement* elf= node->FirstChildElement("ElfCost");
+  XMLElement* halforc = node->FirstChildElement("HalfOrcCost");
+
+  return std::make_unique<modSkillCost>(
+    cost_for_race(human),
+    cost_for_race(elf),
+    cost_for_race(halforc),
+    m_character_details
+  );
+}
+
+//=============================================================================
+std::unique_ptr<modRaceCost> modSkillManager::cost_for_race(
+  tinyxml2::XMLElement * node
+)
+//
+//D Read the attributes for cost depending on class
+//
+//-----------------------------------------------------------------------------
+{
+  std::vector<std::string> points = { "Acolyte", "Warrior", "Mage", "Scout" };
+  int acolyte_points = 0;
+  node->QueryIntAttribute("Acolyte", &acolyte_points);
+
+  int warrior_points = 0;
+  node->QueryIntAttribute("Warrior", &warrior_points);
+
+  int mage_points = 0;
+  node->QueryIntAttribute("Mage", &mage_points);
+
+  int scout_points = 0;
+  node->QueryIntAttribute("Scout", &scout_points);
+  
+  return std::make_unique<modRaceCost>(
+    warrior_points, 
+    scout_points, 
+    acolyte_points, 
+    mage_points
+  );
+}
+
+//=============================================================================
+void modSkillManager::set_up_magic()
+//
+//D
+//
+//-----------------------------------------------------------------------------
+{
+  m_magic_manager.set_slot_level(find_skill_by_name("Buy Level 1 Spell Slot"), 1);
+  m_magic_manager.set_slot_level(find_skill_by_name("Buy Level 2 Spell Slot"), 2);
+  m_magic_manager.set_slot_level(find_skill_by_name("Buy Level 3 Spell Slot"), 3);
+  m_magic_manager.set_slot_level(find_skill_by_name("Buy Level 4 Spell Slot"), 4);
+  m_magic_manager.set_slot_level(find_skill_by_name("Buy Level 5 Spell Slot"), 5);
+}
+
+//=============================8================================================
+void modSkillManager::set_up_power()
+//
+//-----------------------------------------------------------------------------
+{
+  m_power_manager.set_power_picks(find_skill_by_name("Buy 1 Point of Power"));
+}
+
+//=============================================================================
+modSkill * modSkillManager::find_skill_by_name(std::string name)
+//
+//-----------------------------------------------------------------------------
+{
+  for (std::unique_ptr<modSkill>& skill : m_skill_tree) {
+    if (skill->name() == name) {
+      return skill.get();
+    }
+  }
+  // Failed to find the correct skill
+  assert(1 == 0);
+  return nullptr;
 }
 

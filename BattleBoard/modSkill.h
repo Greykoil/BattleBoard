@@ -7,12 +7,14 @@
 #pragma once
 // includes from our libraries
 #include "modState.h"
+#include "modSkillCost.h"
 // system includes
 #include <vector>
+#include <memory>
 // class predeclarations to avoid header file inclusion
 class vwmSkill;
 class modSkillManager;
-
+class modCharacterDetails;
 // types: classes, enums, typedefs
 
 //=============================================================================
@@ -21,7 +23,7 @@ public:
 
   modSkill(
     std::string name,
-    int cost,
+    std::unique_ptr<modSkillCost> cost_manager,
     int max_picks,
     bool status,
     std::vector<modSkill*> prerequisites // The list of skills needed before this skill can be taken
@@ -85,7 +87,7 @@ private:
   // variables
   std::string m_name;
 
-  int m_cost;
+  std::unique_ptr<modSkillCost> m_cost_manager;
 
   int m_max_picks;
 

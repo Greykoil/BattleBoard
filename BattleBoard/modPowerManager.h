@@ -1,10 +1,9 @@
 //=============================================================================
-//D <One line description>
-//
-// <Full description.>
+//D Helper class to look after the players power and power related skills
 //
 //-----------------------------------------------------------------------------
 #pragma once
+
 // includes from our libraries
 
 // system includes
@@ -12,31 +11,30 @@
 // class predeclarations to avoid header file inclusion
 
 // types: classes, enums, typedefs
+class modSkill;
 
 //=============================================================================
-class exampleClass {
+class modPowerManager
+{
 public:
-
-  exampleClass();
+  modPowerManager();
   // Constructor
 
-  exampleClass(const exampleClass&) = delete;
+  void set_power_picks(modSkill* skill);
+  
+  int total_power() const;
+
+  modPowerManager(const modPowerManager&) = delete;
   // Deleted copy constructor.
 
-  exampleClass& operator=(const exampleClass&) = delete;
+  modPowerManager& operator=(const modPowerManager&) = delete;
   // Deleted assignment operator.
 
-  ~exampleClass();
+  virtual ~modPowerManager() = default;
   // Destructor
-
-protected:
-
-  // functions
-  // variables
 
 private:
 
-  // friends
-  // functions
-  // variables
+  modSkill* m_power_picks;
 };
+

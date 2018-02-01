@@ -47,17 +47,17 @@
     <Filter Include="Header Files\Model">
       <UniqueIdentifier>{931e3762-4c91-4700-b171-27874b8349b1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\ViewModel">
-      <UniqueIdentifier>{9a852a97-dba8-4473-96fc-8e3462aa7381}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\View">
       <UniqueIdentifier>{55d771ed-abaf-4313-bb56-48f18a37fef0}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Model">
       <UniqueIdentifier>{cb90b4be-eb61-4503-92d0-0711274fba94}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\ViewModel">
-      <UniqueIdentifier>{210d94e7-8a99-4c49-aea3-d08555eef744}</UniqueIdentifier>
+    <Filter Include="Header Files\BBWidgets">
+      <UniqueIdentifier>{58df6f21-71a5-4076-bc34-e1fcb53434e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\BBWidgets">
+      <UniqueIdentifier>{9326a69b-c129-4156-b029-e31367f93a0c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -75,12 +75,6 @@
     </ClCompile>
     <ClCompile Include="modSkillManager.cpp">
       <Filter>Source Files\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="vwmSkillPage.cpp">
-      <Filter>Source Files\ViewModel</Filter>
-    </ClCompile>
-    <ClCompile Include="vwmSkill.cpp">
-      <Filter>Source Files\ViewModel</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_vieAdventureRecordWidget.cpp">
       <Filter>Generated Files\Debug</Filter>
@@ -136,9 +130,6 @@
     <ClCompile Include="modCharacter.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
-    <ClCompile Include="vwmCharacter.cpp">
-      <Filter>Source Files\ViewModel</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_vieCharacterWindow.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
@@ -149,6 +140,96 @@
       <Filter>Source Files\View</Filter>
     </ClCompile>
     <ClCompile Include="modState.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vieCharacterDetailsWindow.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vieCharacterDetailsWindow.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="vieCharacterDetailsWindow.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="modCharacterDetails.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="modSkillCost.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="modRaceCost.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vieBBLifeWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vieBBLifeWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vieBBPowerWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vieBBPowerWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vieBBSkillsWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vieBBSkillsWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vieBBMagicWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vieBBMagicWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vieEquipmentWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vieEquipmentWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vieBBLineWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vieBBLineWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="vieBBLifeWidget.cpp">
+      <Filter>Source Files\BBWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="vieBBLineWidget.cpp">
+      <Filter>Source Files\BBWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="vieBBMagicWidget.cpp">
+      <Filter>Source Files\BBWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="vieBBPowerWidget.cpp">
+      <Filter>Source Files\BBWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="vieBBSkillsWidget.cpp">
+      <Filter>Source Files\BBWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="vieEquipmentWidget.cpp">
+      <Filter>Source Files\BBWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="modCharacterDetailsEnum.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="modMagicManager.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vieBBSpellSlotWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vieBBSpellSlotWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="vieBBSpellSlotWidget.cpp">
+      <Filter>Source Files\BBWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="modPowerManager.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
   </ItemGroup>
@@ -195,6 +276,54 @@
     <CustomBuild Include="vieSaveWindow.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="vieCharacterDetailsWindow.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieCharacterDetailsWindow.h">
+      <Filter>Header Files\View</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBLifeWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBPowerWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBSkillsWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBMagicWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieEquipmentWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBLineWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBLifeWidget.h">
+      <Filter>Header Files\BBWidgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBLineWidget.h">
+      <Filter>Header Files\BBWidgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBMagicWidget.h">
+      <Filter>Header Files\BBWidgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBPowerWidget.h">
+      <Filter>Header Files\BBWidgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBSkillsWidget.h">
+      <Filter>Header Files\BBWidgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieEquipmentWidget.h">
+      <Filter>Header Files\BBWidgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBSpellSlotWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBSpellSlotWidget.h">
+      <Filter>Header Files\BBWidgets</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="3rdPartyXml\tinyxml2.h">
@@ -205,12 +334,6 @@
     </ClInclude>
     <ClInclude Include="modSkillManager.h">
       <Filter>Header Files\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="vwmSkillPage.h">
-      <Filter>Header Files\ViewModel</Filter>
-    </ClInclude>
-    <ClInclude Include="vwmSkill.h">
-      <Filter>Header Files\ViewModel</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_vieAdventureRecordWidget.h">
       <Filter>Generated Files</Filter>
@@ -226,9 +349,6 @@
     </ClInclude>
     <ClInclude Include="modCharacter.h">
       <Filter>Header Files\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="vwmCharacter.h">
-      <Filter>Header Files\ViewModel</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_vieAdventureRecordWindow.h">
       <Filter>Generated Files</Filter>
@@ -246,6 +366,48 @@
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="modState.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieCharacterDetailsWindow.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="modCharacterDetails.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="modSkillCost.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="modRaceCost.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="modCharacterDetailsEnum.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieBBLifeWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieBBPowerWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieBBSkillsWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieBBMagicWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieEquipmentWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieBBLineWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="modMagicManager.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieBBSpellSlotWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="modPowerManager.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
   </ItemGroup>
