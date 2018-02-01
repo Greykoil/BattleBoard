@@ -37,6 +37,10 @@ public:
   modCharacterDetails* get_character_details();
   // Return m_character_details
 
+  modMagicManager* get_magic_manager();
+
+  modPowerManager* get_power_manager();
+
   void read_state(std::string file_name);
   // read the xml file and turn it into a character state
 

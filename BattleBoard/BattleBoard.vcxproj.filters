@@ -160,9 +160,6 @@
     <ClCompile Include="modRaceCost.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
-    <ClCompile Include="modCharacterDetailsEnum.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_vieBBLifeWidget.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
@@ -216,6 +213,24 @@
     </ClCompile>
     <ClCompile Include="vieEquipmentWidget.cpp">
       <Filter>Source Files\BBWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="modCharacterDetailsEnum.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="modMagicManager.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vieBBSpellSlotWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vieBBSpellSlotWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="vieBBSpellSlotWidget.cpp">
+      <Filter>Source Files\BBWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="modPowerManager.cpp">
+      <Filter>Source Files\Model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -303,6 +318,12 @@
     <CustomBuild Include="vieEquipmentWidget.h">
       <Filter>Header Files\BBWidgets</Filter>
     </CustomBuild>
+    <CustomBuild Include="vieBBSpellSlotWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBSpellSlotWidget.h">
+      <Filter>Header Files\BBWidgets</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="3rdPartyXml\tinyxml2.h">
@@ -379,6 +400,15 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_vieBBLineWidget.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="modMagicManager.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieBBSpellSlotWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="modPowerManager.h">
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

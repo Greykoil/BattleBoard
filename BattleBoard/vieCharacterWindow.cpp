@@ -5,8 +5,8 @@
 
 // Class header include
 #include "vieCharacterWindow.h"
-#include "modCharacter.h"
 // includes from project
+#include "modCharacter.h"
 #include "modCharacter.h"
 
 // System inlcudes
@@ -25,7 +25,9 @@ vieCharacterWindow::vieCharacterWindow(
 //
 //-----------------------------------------------------------------------------
   : QDialog(parent),
-    m_view_model(model)
+    m_view_model(model),
+    m_magic_widget(model->get_magic_manager()),
+    m_power_widget(model->get_power_manager())
 {
 //  m_view_model->set_character_window(this);
   m_ui.setupUi(this);
@@ -52,7 +54,6 @@ void vieCharacterWindow::update()
 //-----------------------------------------------------------------------------
 {
   m_life_widget.update(m_view_model->get_skill_page_manager()->life());
-  // this will cause the widgets to refresh their displayed information
-  //auto life = m_view_model->get_character_model()->get_life();
-  //m_life_widget->update(100);
+  m_magic_widget.update();
+  m_power_widget.redraw();
 }

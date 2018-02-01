@@ -8,6 +8,8 @@
 
 #include "modSkill.h"
 #include "modState.h"
+#include "modMagicManager.h"
+#include "modPowerManager.h"
 // system includes
 #include <vector>
 #include <memory>
@@ -49,7 +51,11 @@ public:
   modCharacterDetails* get_character_details();
   // Get the current character details
 
-  int life() const;
+  modMagicManager* get_magic_manager();
+
+  modPowerManager* get_power_manager();
+
+  int life();
   // Return the characters available life
 
   modSkillManager(const modSkillManager&) = delete;
@@ -73,6 +79,15 @@ protected:
   std::unique_ptr<modRaceCost> cost_for_race(tinyxml2::XMLElement* node);
   // Get the costs associated with a given race
 
+  void set_up_magic();
+  // Set up the magic manager once the skill tree has been sorted.
+
+  void set_up_power();
+  // Set up the power manager once the skill tree has been sorted.
+
+  modSkill* find_skill_by_name(std::string name);
+  // Find the skill with the corresponding name
+
   // variables
 
 private:
@@ -86,4 +101,7 @@ private:
 
   modCharacterDetails* m_character_details;
 
+  modMagicManager m_magic_manager;
+
+  modPowerManager m_power_manager;
 };

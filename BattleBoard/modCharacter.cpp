@@ -59,6 +59,24 @@ modCharacterDetails * modCharacter::get_character_details()
 }
 
 //=============================================================================
+modMagicManager * modCharacter::get_magic_manager()
+//
+//D
+//
+//-----------------------------------------------------------------------------
+{
+  return m_skill_manager.get_magic_manager();
+}
+
+//=============================================================================
+modPowerManager * modCharacter::get_power_manager()
+//
+//-----------------------------------------------------------------------------
+{
+  return m_skill_manager.get_power_manager();
+}
+
+//=============================================================================
 void modCharacter::read_state(std::string file_name)
 //
 //D Read the given xml file and construct a character state from it

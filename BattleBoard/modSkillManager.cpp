@@ -78,7 +78,7 @@ void modSkillManager::load_from_xml(tinyxml2::XMLElement* element)
     }
     child_element = child_element->NextSiblingElement("Skill");
   }
-  m_view->redraw();
+//  m_view->redraw();
 }
 
 //=============================================================================
@@ -101,6 +101,8 @@ bool modSkillManager::create_skill_tree()
     skill = skill->NextSiblingElement("Skill");
   }
 
+  set_up_magic();
+  set_up_power();
   return true;
 }
 
@@ -135,17 +137,29 @@ modSkill* modSkillManager::skill(int num)
 }
 
 //=============================================================================
-int modSkillManager::life() const
+modMagicManager* modSkillManager::get_magic_manager()
 //
 //-----------------------------------------------------------------------------
 {
-  for (auto& skill : m_skill_tree) {
-    if (skill->name() == "Buy 3 Points of Life") {
-      return skill->num_picks() + 42;
-    }
+  return &m_magic_manager;
+}
 
-  }
-  return 0;
+//=============================================================================
+modPowerManager * modSkillManager::get_power_manager()
+//
+//-----------------------------------------------------------------------------
+{
+  return &m_power_manager;
+}
+
+//=============================================================================
+int modSkillManager::life()
+//
+//-----------------------------------------------------------------------------
+{
+  modSkill* life = find_skill_by_name("Buy 3 Points of Life");
+
+  return ((life->num_picks() * 3) + 42);
 }
 
 //=============================================================================
@@ -241,5 +255,42 @@ std::unique_ptr<modRaceCost> modSkillManager::cost_for_race(
     acolyte_points, 
     mage_points
   );
+}
+
+//=============================================================================
+void modSkillManager::set_up_magic()
+//
+//D
+//
+//-----------------------------------------------------------------------------
+{
+  m_magic_manager.set_slot_level(find_skill_by_name("Buy Level 1 Spell Slot"), 1);
+  m_magic_manager.set_slot_level(find_skill_by_name("Buy Level 2 Spell Slot"), 2);
+  m_magic_manager.set_slot_level(find_skill_by_name("Buy Level 3 Spell Slot"), 3);
+  m_magic_manager.set_slot_level(find_skill_by_name("Buy Level 4 Spell Slot"), 4);
+  m_magic_manager.set_slot_level(find_skill_by_name("Buy Level 5 Spell Slot"), 5);
+}
+
+//=============================8================================================
+void modSkillManager::set_up_power()
+//
+//-----------------------------------------------------------------------------
+{
+  m_power_manager.set_power_picks(find_skill_by_name("Buy 1 Point of Power"));
+}
+
+//=============================================================================
+modSkill * modSkillManager::find_skill_by_name(std::string name)
+//
+//-----------------------------------------------------------------------------
+{
+  for (std::unique_ptr<modSkill>& skill : m_skill_tree) {
+    if (skill->name() == name) {
+      return skill.get();
+    }
+  }
+  // Failed to find the correct skill
+  assert(1 == 0);
+  return nullptr;
 }
 

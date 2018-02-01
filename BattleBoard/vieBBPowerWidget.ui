@@ -38,7 +38,7 @@
          <enum>QLayout::SetMinimumSize</enum>
         </property>
         <item>
-         <widget class="QLabel" name="label">
+         <widget class="QLabel" name="powerLabel">
           <property name="enabled">
            <bool>true</bool>
           </property>
@@ -72,7 +72,7 @@
          <enum>QLayout::SetMinimumSize</enum>
         </property>
         <item>
-         <widget class="QLabel" name="label_2">
+         <widget class="QLabel" name="powerOutLabel">
           <property name="maximumSize">
            <size>
             <width>16777215</width>
@@ -103,7 +103,7 @@
          <enum>QLayout::SetMinimumSize</enum>
         </property>
         <item>
-         <widget class="QLabel" name="label_3">
+         <widget class="QLabel" name="powerSelfLabel">
           <property name="maximumSize">
            <size>
             <width>16777215</width>
@@ -183,7 +183,7 @@
     </layout>
    </item>
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout_2" stretch="">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
      <property name="spacing">
       <number>0</number>
      </property>
