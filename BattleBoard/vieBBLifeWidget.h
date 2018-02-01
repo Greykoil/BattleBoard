@@ -14,7 +14,7 @@ public:
   void update(int life);
   // Update the life to show the new value
 
-  ~vieBBLifeWidget();
+  ~vieBBLifeWidget() = default;
 
 private:
   Ui::vieBBLifeWidget m_ui;

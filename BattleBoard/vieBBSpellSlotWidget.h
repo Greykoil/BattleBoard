@@ -16,6 +16,9 @@ public:
 
     ~vieBBSpellSlotWidget() = default;
 
+
+private slots:
+
 private:
     Ui::vieBBSpellSlotWidget m_ui;
     modSkill* m_spell_slot;

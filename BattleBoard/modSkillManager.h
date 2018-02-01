@@ -10,6 +10,7 @@
 #include "modState.h"
 #include "modMagicManager.h"
 #include "modPowerManager.h"
+#include "modArmourManager.h"
 // system includes
 #include <vector>
 #include <memory>
@@ -55,6 +56,8 @@ public:
 
   modPowerManager* get_power_manager();
 
+  modArmourManager* get_armour_manager();
+
   int life();
   // Return the characters available life
 
@@ -85,6 +88,9 @@ protected:
   void set_up_power();
   // Set up the power manager once the skill tree has been sorted.
 
+  void set_up_armour();
+  // Set up the armour manager once the skill tree has been sorted
+
   modSkill* find_skill_by_name(std::string name);
   // Find the skill with the corresponding name
 
@@ -104,4 +110,6 @@ private:
   modMagicManager m_magic_manager;
 
   modPowerManager m_power_manager;
+
+  modArmourManager m_armour_manager;
 };
