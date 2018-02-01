@@ -3,7 +3,7 @@
 #include "vieBBLifeWidget.h"
 #include "vieBBLineWidget.h"
 
-vieBBLifeWidget::vieBBLifeWidget(int life, QWidget *parent)
+vieBBLifeWidget::vieBBLifeWidget(QWidget *parent)
     : QWidget(parent)
 {
     m_ui.setupUi(this);
@@ -13,7 +13,6 @@ vieBBLifeWidget::vieBBLifeWidget(int life, QWidget *parent)
       m_ui.verticalLayout_6->addWidget(new vieBBLineWidget);
       m_ui.verticalLayout_6->addWidget(new vieBBLineWidget);
     }
-    m_ui.label->setText(QString::number(life));
 }
 
 //=============================================================================
@@ -26,6 +25,10 @@ void vieBBLifeWidget::update(int life)
   m_ui.label->setText(QString::number(life));
 }
 
+
+//=============================================================================
 vieBBLifeWidget::~vieBBLifeWidget()
+//
+//-----------------------------------------------------------------------------
 {
 }

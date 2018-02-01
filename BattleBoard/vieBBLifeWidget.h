@@ -8,7 +8,7 @@ class vieBBLifeWidget : public QWidget
     Q_OBJECT
 
 public:
-  vieBBLifeWidget(int life, QWidget *parent = Q_NULLPTR);
+  vieBBLifeWidget(QWidget *parent = Q_NULLPTR);
   
   
   void update(int life);

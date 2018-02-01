@@ -7,7 +7,7 @@
 #include "vieCharacterWindow.h"
 #include "modCharacter.h"
 // includes from project
-#include "vwmCharacter.h"
+#include "modCharacter.h"
 
 // System inlcudes
 #include <assert.h>
@@ -17,7 +17,7 @@
 
 //=============================================================================
 vieCharacterWindow::vieCharacterWindow(
-  vwmCharacter* view_model, 
+  modCharacter* model, 
   QWidget *parent
 )
 //
@@ -25,14 +25,12 @@ vieCharacterWindow::vieCharacterWindow(
 //
 //-----------------------------------------------------------------------------
   : QDialog(parent),
-    m_view_model(view_model),
-    m_life_widget(30)
+    m_view_model(model)
 {
-  m_view_model->set_character_window(this);
+//  m_view_model->set_character_window(this);
   m_ui.setupUi(this);
   assert(m_view_model != nullptr);
 
-//  m_ui.gridLayout->addWidget(&m_life_widget);
   m_ui.gridLayout->addWidget(&m_life_widget, 0, 0);
   m_ui.gridLayout->addWidget(&m_magic_widget, 1, 0);
   m_ui.gridLayout->addWidget(&m_power_widget, 0, 1);
@@ -53,6 +51,7 @@ void vieCharacterWindow::update()
 //
 //-----------------------------------------------------------------------------
 {
+  m_life_widget.update(m_view_model->get_skill_page_manager()->life());
   // this will cause the widgets to refresh their displayed information
   //auto life = m_view_model->get_character_model()->get_life();
   //m_life_widget->update(100);

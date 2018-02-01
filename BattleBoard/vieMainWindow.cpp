@@ -14,7 +14,6 @@
 #include "vieCharacterWindow.h"
 #include "vieCharacterDetailsWindow.h"
 #include "modCharacter.h"
-#include "vwmCharacter.h"
 // standard library includes
 #include <assert.h>
 
@@ -23,21 +22,17 @@
 
 //=============================================================================
 vieMainWindow::vieMainWindow(
-  vwmCharacter* character_view_model, 
   modCharacter* character_model,
   QWidget *parent
 )
 // 
 //-----------------------------------------------------------------------------
 : QMainWindow(parent),
-  m_view_model(character_view_model),
   m_model(character_model),
   m_ui(),
   m_tab_list()
 {
-  assert(character_view_model != nullptr);
   m_ui.setupUi(this);
-  m_view_model->set_main_window(this);
   add_tabs();
 }
 
@@ -50,12 +45,11 @@ void vieMainWindow::add_tabs()
 //-----------------------------------------------------------------------------
 {
   // Add the tabs to storeage
-  m_tab_list.push_back(std::make_unique<vieCharacterWindow>(m_view_model));
+  m_tab_list.push_back(std::make_unique<vieCharacterWindow>(m_model));
   
   auto skill_window = std::make_unique<vieSkillWindow>(
-    m_view_model->get_skill_view_model(),
-    m_view_model->get_skill_view_model()->get_skill_model(),
-    m_view_model->get_character_model()
+    m_model->get_skill_page_manager(),
+    m_model
   );
 
   m_tab_list.push_back(std::move(skill_window));
@@ -138,5 +132,10 @@ void vieMainWindow::actionTabChanged(int index)
   vieSkillWindow* window = dynamic_cast<vieSkillWindow*>(m_tab_list[index].get());
   if (window != nullptr) {
     window->redraw();
+  } 
+  
+  vieCharacterWindow* char_window = dynamic_cast<vieCharacterWindow*>(m_tab_list[index].get());
+  if (char_window) {
+    char_window->update();
   }
 }

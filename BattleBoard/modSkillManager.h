@@ -13,8 +13,8 @@
 #include <memory>
 
 // class predeclarations to avoid header file inclusion
-class vwmSkillPage;
 class modCharacterDetails;
+class vieSkillWindow;
 // types: classes, enums, typedefs
 
 //=============================================================================
@@ -24,7 +24,7 @@ public:
   modSkillManager(modCharacterDetails* character_details);
   // Constructor
 
-  void set_view_model(vwmSkillPage* view_model);
+  void set_view(vieSkillWindow* view_model);
 
   virtual tinyxml2::XMLElement* convert_to_xml(
     tinyxml2::XMLDocument* parent
@@ -82,7 +82,7 @@ private:
   // variables
   std::vector<std::unique_ptr<modSkill>> m_skill_tree;
 
-  vwmSkillPage* m_view_model;
+  vieSkillWindow* m_view;
 
   modCharacterDetails* m_character_details;
 

@@ -143,7 +143,11 @@ bool modSkill::set_picks(int num_picks)
 //
 //-----------------------------------------------------------------------------
 {
-  assert(num_picks <= m_max_picks);
+  bool picks_correct = true;
+  if (num_picks > m_max_picks) {
+    picks_correct = false;
+    m_num_picks = m_max_picks;
+  }
 
   // Check for having to update the available skills
   int old = m_num_picks;
@@ -170,7 +174,7 @@ bool modSkill::set_picks(int num_picks)
     }
   }
 
-  return true;
+  return picks_correct;
 }
 
 //=============================================================================

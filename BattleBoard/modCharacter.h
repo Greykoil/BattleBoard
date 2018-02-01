@@ -15,7 +15,6 @@
 // class predeclarations to avoid header file inclusion
 class vwmCharacter;
 class vwmAdventureRecordManager;
-class vwmSkillPage;
 
 // types: classes, enums, typedefs
 

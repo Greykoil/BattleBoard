@@ -22,7 +22,7 @@
 // class predeclarations to avoid header file inclusion
 
 // types: classes, enums, typedefs
-class vwmCharacter;
+class modCharacter;
 
 //=============================================================================
 class vieCharacterWindow : public QDialog
@@ -32,7 +32,7 @@ class vieCharacterWindow : public QDialog
 public:
   
   vieCharacterWindow(
-    vwmCharacter* view_model,
+    modCharacter* model,
     QWidget *parent = Q_NULLPTR
   );
   // Constructor
@@ -54,7 +54,7 @@ public:
 private:
   Ui::vieCharacter m_ui;
 
-  vwmCharacter* m_view_model;
+  modCharacter* m_view_model;
 
   vieBBPowerWidget m_power_widget;
 

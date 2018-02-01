@@ -6,7 +6,6 @@
 //-----------------------------------------------------------------------------
 #pragma once
 // includes from project
-#include "vwmSkillPage.h"
 // QT ui include
 #include "ui_vieMainWindow.h"
 
@@ -18,7 +17,6 @@
 #include <memory>
 
 // class predeclarations to avoid header file inclusion
-class vwmCharacter;
 class vieCharacterWindow;
 class modCharacter;
 // types: classes, enums, typedefs
@@ -30,7 +28,6 @@ class vieMainWindow : public QMainWindow
 
 public:
   vieMainWindow(
-    vwmCharacter* character_view_model,
     modCharacter* character_model,
     QWidget *parent = Q_NULLPTR
   );
@@ -61,8 +58,6 @@ private slots:
   void actionTabChanged(int index);
 
 private:
-
-  vwmCharacter* m_view_model;
 
   modCharacter* m_model;
 

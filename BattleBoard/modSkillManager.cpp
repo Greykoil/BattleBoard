@@ -6,10 +6,10 @@
 
 // Class header include 
 #include "modSkillManager.h"
-#include "vwmSkillPage.h"
 
 // includes from our libraries
 #include "modSkill.h"
+#include "vieSkillWindow.h"
 // system includes
 #include <memory>
 #include <assert.h>
@@ -26,19 +26,19 @@ modSkillManager::modSkillManager(modCharacterDetails* character_details)
 //
 //-----------------------------------------------------------------------------
   : m_skill_tree(),
-    m_view_model(nullptr),
+    m_view(nullptr),
     m_character_details(character_details)
 {
   assert(character_details != nullptr);
 }
 
 //=============================================================================
-void modSkillManager::set_view_model(vwmSkillPage * view_model)
+void modSkillManager::set_view(vieSkillWindow* view_model)
 //
 //-----------------------------------------------------------------------------
 {
   assert(view_model != nullptr);
-  m_view_model = view_model;
+  m_view = view_model;
 }
 
 //=============================================================================
@@ -78,7 +78,7 @@ void modSkillManager::load_from_xml(tinyxml2::XMLElement* element)
     }
     child_element = child_element->NextSiblingElement("Skill");
   }
-  m_view_model->update_displayed_skills();
+  m_view->redraw();
 }
 
 //=============================================================================
@@ -140,7 +140,7 @@ int modSkillManager::life() const
 //-----------------------------------------------------------------------------
 {
   for (auto& skill : m_skill_tree) {
-    if (skill->name() == "Life") {
+    if (skill->name() == "Buy 3 Points of Life") {
       return skill->num_picks() + 42;
     }
 

@@ -47,17 +47,11 @@
     <Filter Include="Header Files\Model">
       <UniqueIdentifier>{931e3762-4c91-4700-b171-27874b8349b1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\ViewModel">
-      <UniqueIdentifier>{9a852a97-dba8-4473-96fc-8e3462aa7381}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\View">
       <UniqueIdentifier>{55d771ed-abaf-4313-bb56-48f18a37fef0}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Model">
       <UniqueIdentifier>{cb90b4be-eb61-4503-92d0-0711274fba94}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\ViewModel">
-      <UniqueIdentifier>{210d94e7-8a99-4c49-aea3-d08555eef744}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\BBWidgets">
       <UniqueIdentifier>{58df6f21-71a5-4076-bc34-e1fcb53434e6}</UniqueIdentifier>
@@ -81,12 +75,6 @@
     </ClCompile>
     <ClCompile Include="modSkillManager.cpp">
       <Filter>Source Files\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="vwmSkillPage.cpp">
-      <Filter>Source Files\ViewModel</Filter>
-    </ClCompile>
-    <ClCompile Include="vwmSkill.cpp">
-      <Filter>Source Files\ViewModel</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_vieAdventureRecordWidget.cpp">
       <Filter>Generated Files\Debug</Filter>
@@ -141,9 +129,6 @@
     </ClCompile>
     <ClCompile Include="modCharacter.cpp">
       <Filter>Source Files\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="vwmCharacter.cpp">
-      <Filter>Source Files\ViewModel</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_vieCharacterWindow.cpp">
       <Filter>Generated Files\Debug</Filter>
@@ -329,12 +314,6 @@
     <ClInclude Include="modSkillManager.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
-    <ClInclude Include="vwmSkillPage.h">
-      <Filter>Header Files\ViewModel</Filter>
-    </ClInclude>
-    <ClInclude Include="vwmSkill.h">
-      <Filter>Header Files\ViewModel</Filter>
-    </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_vieAdventureRecordWidget.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
@@ -349,9 +328,6 @@
     </ClInclude>
     <ClInclude Include="modCharacter.h">
       <Filter>Header Files\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="vwmCharacter.h">
-      <Filter>Header Files\ViewModel</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_vieAdventureRecordWindow.h">
       <Filter>Generated Files</Filter>

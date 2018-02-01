@@ -17,7 +17,8 @@
 
 // class predeclarations to avoid header file inclusion
 // types: classes, enums, typedefs
-class vwmSkill;
+class modSkill;
+class vieSkillWindow;
 
 //=============================================================================
 class vieSkillWidget : public QWidget
@@ -27,10 +28,8 @@ class vieSkillWidget : public QWidget
 public:
 
   vieSkillWidget(
-    vwmSkill* view_model,
-    QString name,
-    int cost_per_rank,
-    int max_picks,
+    modSkill* model,
+    vieSkillWindow* parent_win,
     QWidget *parent = Q_NULLPTR
   );
   // Constructor
@@ -62,6 +61,7 @@ private:
   
   Ui::SkillWidget m_ui;
 
-  vwmSkill* m_view_model;
+  modSkill* m_model;
 
+  vieSkillWindow* m_parent_win;
 };

@@ -6,8 +6,8 @@
 // Class header include
 #include "vieSkillWidget.h"
 // includes from project
-#include "vwmSkill.h"
-
+#include "modSkill.h"
+#include "vieSkillWindow.h"
 //includes from QT
 #include <qmessagebox.h>
 
@@ -17,23 +17,21 @@
 
 //=============================================================================
 vieSkillWidget::vieSkillWidget(
-  vwmSkill* view_model,
-  QString name, 
-  int cost_per_rank,
-  int max_picks,
+  modSkill* model,
+  vieSkillWindow* parent_win,
   QWidget *parent
 )
 //
 //-----------------------------------------------------------------------------
   : QWidget(parent),
-    m_view_model(view_model)
+    m_model(model),
+    m_parent_win(parent_win)
 {
-  assert(view_model != nullptr);
-  m_view_model->set_view_skill(this);
+  assert(model != nullptr);
   m_ui.setupUi(this);
-  m_ui.costLabel->setText(QString::number(cost_per_rank));
-  m_ui.maxPicksLabel->setText(QString::number(max_picks));
-  m_ui.nameLabel->setText(name);
+  m_ui.costLabel->setText(QString::number(m_model->cost_per_rank()));
+  m_ui.maxPicksLabel->setText(QString::number(m_model->max_picks()));
+  m_ui.nameLabel->setText(QString::fromStdString(m_model->name()));
   m_ui.statusSkillCheck->setAttribute(Qt::WA_TransparentForMouseEvents);
   m_ui.statusSkillCheck->setFocusPolicy(Qt::NoFocus);
 }
@@ -52,15 +50,16 @@ void vieSkillWidget::actionNumberPicksBoxChanged(QString new_text)
   // don't want. 
   num_picks = std::max(0, num_picks);
 
-  bool changed = m_view_model->change_num_picks(num_picks);
+  bool changed = m_model->set_picks(num_picks);
+  // This needs to come back in when dependency is fixed
+  //if (!changed) {
+  //  QMessageBox box;
+  //  box.setText("Removing breaks dependency");
+  //  box.exec();
+  //}
 
-  if (!changed) {
-    QMessageBox box;
-    box.setText("Removing breaks dependency");
-    box.exec();
-  }
-
-  m_ui.numberBoughtEdit->setText(QString::number(m_view_model->num_picks()));
+  m_ui.numberBoughtEdit->setText(QString::number(m_model->num_picks()));
+  m_parent_win->redraw();
 }
 
 //=============================================================================
@@ -80,7 +79,7 @@ bool vieSkillWidget::is_visable()
 //
 //-----------------------------------------------------------------------------
 {
-  return m_view_model->is_visable();
+  return m_model->is_pickable();
 }
 
 //=============================================================================
@@ -90,8 +89,8 @@ void vieSkillWidget::update_after_load()
 //
 //-----------------------------------------------------------------------------
 {
-  m_ui.numberBoughtEdit->setText(QString::number(m_view_model->num_picks()));
-  m_ui.totalCostLabel->setText(QString::number(m_view_model->total_cost()));
-  m_ui.costLabel->setText(QString::number(m_view_model->cost_per_rank()));
+  m_ui.numberBoughtEdit->setText(QString::number(m_model->num_picks()));
+  m_ui.totalCostLabel->setText(QString::number(m_model->total_cost()));
+  m_ui.costLabel->setText(QString::number(m_model->cost_per_rank()));
 }
 
