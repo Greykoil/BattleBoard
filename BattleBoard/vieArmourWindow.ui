@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>vieArmourWindow</class>
+ <widget class="QDialog" name="vieArmourWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>667</width>
+    <height>466</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>vieArmourWindow</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Worm Armour</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="1">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Superior</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Ensourcelled</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Empowered</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Metal/Non Metal</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QComboBox" name="armourType">
+        <item>
+         <property name="text">
+          <string>None</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Metal</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Non-Metal</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QSpinBox" name="superiorCount"/>
+      </item>
+      <item row="3" column="2">
+       <widget class="QSpinBox" name="ensourcelledCount"/>
+      </item>
+      <item row="3" column="3">
+       <widget class="QSpinBox" name="empoweredCount"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>Permenant Armour Items</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>Add New Source</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="title">
+      <string>Long Duration Spells and Invocations</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="text">
+         <string>Add New Source</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>vieArmourWindow</receiver>
+   <slot>actionOnAddNewPermenantSource()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>278</x>
+     <y>235</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>315</x>
+     <y>-9</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>vieArmourWindow</receiver>
+   <slot>actionOnAddNewLongDurationSource()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>320</x>
+     <y>382</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>354</x>
+     <y>2</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>armourType</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>vieArmourWindow</receiver>
+   <slot>actionOnWornArmourChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>118</x>
+     <y>136</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>201</x>
+     <y>-16</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>superiorCount</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>vieArmourWindow</receiver>
+   <slot>actionOnWornArmourChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>262</x>
+     <y>135</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>237</x>
+     <y>-6</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ensourcelledCount</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>vieArmourWindow</receiver>
+   <slot>actionOnWornArmourChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>370</x>
+     <y>136</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>270</x>
+     <y>-3</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>empoweredCount</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>vieArmourWindow</receiver>
+   <slot>actionOnWornArmourChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>519</x>
+     <y>126</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>293</x>
+     <y>1</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>actionOnAddNewPermenantSource()</slot>
+  <slot>actionOnAddNewLongDurationSource()</slot>
+  <slot>actionOnWornArmourChanged()</slot>
+ </slots>
+</ui>
