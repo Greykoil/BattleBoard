@@ -41,6 +41,8 @@ public:
 
   modPowerManager* get_power_manager();
 
+  modArmourManager* get_armour_manager();
+
   void read_state(std::string file_name);
   // read the xml file and turn it into a character state
 
@@ -78,5 +80,6 @@ private:
 
   modAdventureRecordManager m_adventure_record_manager;
 
+  modArmourManager m_armour_manager;
 
 };

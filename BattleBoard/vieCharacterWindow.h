@@ -10,7 +10,7 @@
 #include "vieBBPowerWidget.h"
 #include "vieBBMagicWidget.h"
 #include "vieEquipmentWidget.h"
-
+#include "vieBBArmourWidget.h"
 // QT ui include
 #include "ui_vieCharacterWindow.h"
 
@@ -61,5 +61,6 @@ private:
   vieBBMagicWidget m_magic_widget;
   vieBBLifeWidget m_life_widget;
   vieEquipmentWidget m_equipment_widget;
+  vieBBArmourWidget m_armour_widget;
 
 };

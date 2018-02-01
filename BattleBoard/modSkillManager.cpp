@@ -103,6 +103,7 @@ bool modSkillManager::create_skill_tree()
 
   set_up_magic();
   set_up_power();
+  set_up_armour();
   return true;
 }
 
@@ -150,6 +151,16 @@ modPowerManager * modSkillManager::get_power_manager()
 //-----------------------------------------------------------------------------
 {
   return &m_power_manager;
+}
+
+//=============================================================================
+modArmourManager* modSkillManager::get_armour_manager()
+//
+//D
+//
+//-----------------------------------------------------------------------------
+{
+  return &m_armour_manager;
 }
 
 //=============================================================================
@@ -277,6 +288,16 @@ void modSkillManager::set_up_power()
 //-----------------------------------------------------------------------------
 {
   m_power_manager.set_power_picks(find_skill_by_name("Buy 1 Point of Power"));
+}
+
+//=============================================================================
+void modSkillManager::set_up_armour()
+//
+//-----------------------------------------------------------------------------
+{
+  m_armour_manager.add_unarmoured_dex(find_skill_by_name("Unarmoured Dexterity"));
+  m_armour_manager.add_armoured_dex(find_skill_by_name("Armoured Dexterity"));
+  m_armour_manager.add_mastery_skill(find_skill_by_name("Armour Proficiency"));
 }
 
 //=============================================================================

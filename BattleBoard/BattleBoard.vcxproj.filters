@@ -232,6 +232,39 @@
     <ClCompile Include="modPowerManager.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
+    <ClCompile Include="modArmourManager.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vieArmourWindow.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vieArmourWindow.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="vieArmourWindow.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vieBBArmourWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vieBBArmourWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="vieBBArmourWidget.cpp">
+      <Filter>Source Files\BBWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vieBBArmourSourceWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vieBBArmourSourceWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="modArmourSource.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="vieBBArmourSourceWidget.cpp">
+      <Filter>Source Files\BBWidgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="MainWindow.qrc">
@@ -324,6 +357,24 @@
     <CustomBuild Include="vieBBSpellSlotWidget.h">
       <Filter>Header Files\BBWidgets</Filter>
     </CustomBuild>
+    <CustomBuild Include="vieArmourWindow.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieArmourWindow.h">
+      <Filter>Header Files\View</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBArmourWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBArmourWidget.h">
+      <Filter>Header Files\BBWidgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBArmourSourceWidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vieBBArmourSourceWidget.h">
+      <Filter>Header Files\BBWidgets</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="3rdPartyXml\tinyxml2.h">
@@ -408,6 +459,21 @@
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="modPowerManager.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="modArmourManager.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieArmourWindow.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieBBArmourWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_vieBBArmourSourceWidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="modArmourSource.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
   </ItemGroup>

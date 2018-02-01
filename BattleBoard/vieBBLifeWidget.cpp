@@ -24,11 +24,3 @@ void vieBBLifeWidget::update(int life)
 {
   m_ui.label->setText(QString::number(life));
 }
-
-
-//=============================================================================
-vieBBLifeWidget::~vieBBLifeWidget()
-//
-//-----------------------------------------------------------------------------
-{
-}

@@ -77,6 +77,14 @@ modPowerManager * modCharacter::get_power_manager()
 }
 
 //=============================================================================
+modArmourManager * modCharacter::get_armour_manager()
+//
+//-----------------------------------------------------------------------------
+{
+  return m_skill_manager.get_armour_manager();
+}
+
+//=============================================================================
 void modCharacter::read_state(std::string file_name)
 //
 //D Read the given xml file and construct a character state from it

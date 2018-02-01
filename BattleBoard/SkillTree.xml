@@ -81,6 +81,14 @@
   <ElfCost Warrior="14" Scout="20" Acolyte="20" Mage="26"/>
   <HalfOrcCost Warrior="12" Scout="18" Acolyte="18" Mage="24"/>
 </Skill>
-
-  
+  <Skill Name="Armoured Dexterity" MaxPicks="1">
+    <HumanCost Warrior="10" Scout="14" Acolyte="14" Mage="18"/>
+    <ElfCost Warrior="14" Scout="20" Acolyte="20" Mage="26"/>
+    <HalfOrcCost Warrior="12" Scout="18" Acolyte="18" Mage="24"/>
+  </Skill>
+  <Skill Name="Unarmoured Dexterity" MaxPicks="1">
+    <HumanCost Warrior="10" Scout="14" Acolyte="14" Mage="18"/>
+    <ElfCost Warrior="14" Scout="20" Acolyte="20" Mage="26"/>
+    <HalfOrcCost Warrior="12" Scout="18" Acolyte="18" Mage="24"/>
+  </Skill>
 </Root>
