@@ -28,7 +28,8 @@ vieCharacterWindow::vieCharacterWindow(
     m_view_model(model),
     m_magic_widget(model->get_magic_manager()),
     m_power_widget(model->get_power_manager()),
-    m_armour_widget(model->get_armour_manager())
+    m_armour_widget(model->get_armour_manager()),
+    m_ability_widget(model->get_ability_manager())
 {
 //  m_view_model->set_character_window(this);
   m_ui.setupUi(this);
@@ -38,7 +39,7 @@ vieCharacterWindow::vieCharacterWindow(
   m_ui.gridLayout->addWidget(&m_life_widget, 1, 0, 5, 1);
   m_ui.gridLayout->addWidget(&m_magic_widget, 6, 0, 4, 1);
   m_ui.gridLayout->addWidget(&m_power_widget, 0, 1, 5, 1);
-  m_ui.gridLayout->addWidget(&m_equipment_widget, 6, 1, 5, 1);
+  m_ui.gridLayout->addWidget(&m_ability_widget, 6, 1, 5, 1);
 
   m_ui.gridLayout->setColumnStretch(0, 1);
   m_ui.gridLayout->setColumnStretch(1, 1);
@@ -60,4 +61,5 @@ void vieCharacterWindow::update()
   m_magic_widget.update();
   m_power_widget.redraw();
   m_armour_widget.redraw();
+  m_ability_widget.redraw();
 }
