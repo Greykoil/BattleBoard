@@ -12,8 +12,6 @@ class vieBBAbilityDisplayWidget : public QWidget
 public:
   vieBBAbilityDisplayWidget(modAbility* m_model, QWidget *parent = Q_NULLPTR);
 
-  void redraw();
-
   ~vieBBAbilityDisplayWidget() = default;
 
 private:

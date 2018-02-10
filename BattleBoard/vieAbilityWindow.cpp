@@ -15,5 +15,9 @@ vieAbilityWindow::vieAbilityWindow(
 void vieAbilityWindow::actionOnAddNewAbility()
 {
   modAbility* new_ability = m_model->add_new_ability();
-  m_ui.verticalLayout->addWidget(new vieAbilityWidget(new_ability));
+  vieAbilityWidget* widget = new vieAbilityWidget(new_ability);
+  QListWidgetItem* item = new QListWidgetItem();
+  item->setSizeHint(widget->sizeHint());
+  m_ui.listWidget->addItem(item);
+  m_ui.listWidget->setItemWidget(item, widget);
 }
