@@ -10,6 +10,7 @@
 #include "modSkillManager.h"
 #include "modAdventureRecordManager.h"
 #include "modCharacterDetails.h"
+#include "modAbilityManager.h"
 // system includes
 
 // class predeclarations to avoid header file inclusion
@@ -42,6 +43,8 @@ public:
   modPowerManager* get_power_manager();
 
   modArmourManager* get_armour_manager();
+
+  modAbilityManager* get_ability_manager();
 
   void read_state(std::string file_name);
   // read the xml file and turn it into a character state
@@ -82,4 +85,5 @@ private:
 
   modArmourManager m_armour_manager;
 
+  modAbilityManager m_ability_manager;
 };

@@ -84,6 +84,11 @@ modArmourManager * modCharacter::get_armour_manager()
   return m_skill_manager.get_armour_manager();
 }
 
+modAbilityManager * modCharacter::get_ability_manager()
+{
+  return &m_ability_manager;
+}
+
 //=============================================================================
 void modCharacter::read_state(std::string file_name)
 //

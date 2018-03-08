@@ -14,6 +14,7 @@
 #include "vieCharacterWindow.h"
 #include "vieCharacterDetailsWindow.h"
 #include "vieArmourWindow.h"
+#include "vieAbilityWindow.h"
 #include "modCharacter.h"
 // standard library includes
 #include <assert.h>
@@ -73,6 +74,13 @@ void vieMainWindow::add_tabs()
     )
   );
   
+
+  m_tab_list.push_back(
+    std::make_unique<vieAbilityWindow>(
+      m_model->get_ability_manager()
+    )
+  );
+
   // Add the tabs to the widget that displays them
   for (auto& window : m_tab_list) {
     m_ui.tabWidget->addTab(window.get(), window.get()->windowTitle());
